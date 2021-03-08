@@ -15,7 +15,13 @@ Backend (RESTful API) will be accessible on localhost on port 8080 (<http://loca
 
 ### Docker
 
-Removing all containers, volumes and PostgreSQL data
+First stop containers and then remove all containers, volumes and PostgreSQL data
+
+```docker
+docker stop $(docker ps -a -q) && docker rm -v $(docker ps -a -q) && docker volume rm apartments-app_postgres_data
+```
+
+Remove all containers, volumes and PostgreSQL data
 
 ```docker
 docker rm -v $(docker ps -a -q) && docker volume rm apartments-app_postgres_data
