@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "${workspaceRoot}/Backend/env/bin/python",
+    "python.pythonPath": "${workspaceRoot}/backend/env/bin/python",
     "python.languageServer": "Pylance",
     "[python]": {
         "editor.formatOnSave": true,
@@ -21,7 +21,17 @@
     },
     
     "cSpell.words": [
+        "OICAR",
         "apartmens",
+        "dpage",
+        "entrypoint",
+        "fastapi",
+        "initdb",
+        "pgadmin",
+        "postgres",
+        "postgresql",
+        "psycopg",
+        "pytest",
         "uvicorn",
         "venv"
     ],
