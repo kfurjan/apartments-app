@@ -17,7 +17,7 @@ In order to enable IDE suggestions and autocompletion, dependencies should be in
 cd backend/
 python3 -m venv env
 source env/bin/activate
-pip3 install -r app/requirements.txt
+pip3 install -r requirements.txt
 ```
 
 ## Running unit tests
