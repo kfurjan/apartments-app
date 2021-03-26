@@ -8,7 +8,7 @@
     "python.formatting.provider": "black",
     "python.linting.flake8Enabled": true,
     "python.linting.flake8Args": [
-        "--max-line-length=99",
+        "--max-line-length=127",
     ],
     "python.analysis.completeFunctionParens": true,
 
