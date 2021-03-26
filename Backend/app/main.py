@@ -24,7 +24,6 @@ def init_db():
         data = (
             {"id": 1, "title": "The Hobbit", "primary_author": "Tolkien"},
             {"id": 2, "title": "The Silmarillion", "primary_author": "Tolkien"},
-            {"id": 3, "title": "Yet Another Title", "primary_author": "John Doe"},
         )
         statement = text(
             """INSERT INTO book(id, title, primary_author) VALUES(:id, :title, :primary_author)"""
