@@ -3,10 +3,10 @@ name: Apartments App - backend project
 on:
   push:
     paths:
-      - 'backend/**'
+      - 'Backend/**'
   pull_request:
     paths:
-      - 'backend/**'
+      - 'Backend/**'
 
 jobs:
   build:
