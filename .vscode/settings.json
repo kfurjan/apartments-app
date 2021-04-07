@@ -33,6 +33,7 @@
         "postgres",
         "postgresql",
         "psycopg",
+        "pydantic",
         "pytest",
         "uvicorn",
         "venv"
