@@ -1,5 +1,5 @@
 # linter and formatter
-flake8==3.8.3
+flake8==3.9.0
 black==20.8b1
 
 # FastAPI dependencies
