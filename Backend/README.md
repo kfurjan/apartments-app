@@ -1,6 +1,7 @@
 # Backend (FastAPI & PostgreSQL)
 
 Backend project (RESTful API) for apartmens-app. Project is being developed with Python (FastAPI framework) and PostgreSQL database.
+This repository will use [FastAPI real world example](https://github.com/nsidnev/fastapi-realworld-example-app) as a template.
 
 ## Project dependencies
 
