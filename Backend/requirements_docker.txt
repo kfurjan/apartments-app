@@ -5,6 +5,8 @@ uvicorn[standard]==0.13.4
 # Data validation and settings management
 pydantic==1.8.1
 
-# database communication
+# database adapter
 psycopg2==2.8.6
-SQLAlchemy==1.4.6
+
+# database communication
+databases[postgresql]==0.4.3

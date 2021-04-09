@@ -1,5 +1,6 @@
 {
     "python.pythonPath": "${workspaceRoot}/backend/env/bin/python",
+    "python.analysis.extraPaths": ["./backend"],
     "python.languageServer": "Pylance",
     "[python]": {
         "editor.formatOnSave": true,
@@ -25,6 +26,7 @@
         "Karlo",
         "OICAR",
         "apartmens",
+        "asyncpg",
         "dpage",
         "entrypoint",
         "fastapi",
@@ -35,6 +37,7 @@
         "psycopg",
         "pydantic",
         "pytest",
+        "starlette",
         "uvicorn",
         "venv"
     ],
