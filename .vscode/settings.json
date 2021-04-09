@@ -25,6 +25,7 @@
         "Apartmani",
         "Karlo",
         "OICAR",
+        "UNPROCESSABLE",
         "apartmens",
         "asyncpg",
         "dpage",
