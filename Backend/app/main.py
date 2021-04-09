@@ -1,12 +1,11 @@
+from app.core.config import DATABASE_URL
 from fastapi import FastAPI
 from sqlalchemy import Column, Integer, String, Table, create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.sql import text
 
-DATABASE_URL = "postgresql://docker:password@db:5432/apartments_db"
-
-engine = create_engine(DATABASE_URL)
+engine = create_engine(str(DATABASE_URL))
 SessionLocal = sessionmaker(bind=engine)
 Base = declarative_base()
 
