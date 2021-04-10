@@ -1,51 +1,35 @@
-from app.core.config import DATABASE_URL
 from fastapi import FastAPI
-from sqlalchemy import Column, Integer, String, Table, create_engine
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy.sql import text
+from fastapi.exceptions import RequestValidationError
+from starlette.exceptions import HTTPException
+from starlette.middleware.cors import CORSMiddleware
 
-engine = create_engine(str(DATABASE_URL))
-SessionLocal = sessionmaker(bind=engine)
-Base = declarative_base()
-
-books = Table(
-    "book",
-    Base.metadata,
-    Column("id", Integer, primary_key=True),
-    Column("title", String),
-    Column("primary_author", String),
-)
+from app.api.errors.http_error import http_error_handler
+from app.api.errors.validation_error import http422_error_handler
+from app.api.routes.api import router as api_router
+from app.core.config import ALLOWED_HOSTS, API_PREFIX, APP_VERSION, DEBUG, PROJECT_NAME
+from app.core.events import create_start_app_handler, create_stop_app_handler
 
 
-def init_db():
-    with engine.connect() as con:
-        data = (
-            {"id": 1, "title": "The Hobbit", "primary_author": "Tolkien"},
-            {"id": 2, "title": "The Silmarillion", "primary_author": "Tolkien"},
-        )
-        statement = text(
-            """INSERT INTO book(id, title, primary_author) VALUES(:id, :title, :primary_author)"""
-        )
-        for line in data:
-            con.execute(statement, **line)
+def get_application() -> FastAPI:
+    application = FastAPI(title=PROJECT_NAME, debug=DEBUG, version=APP_VERSION)
+
+    application.add_middleware(
+        CORSMiddleware,
+        allow_origins=ALLOWED_HOSTS or ["*"],
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
+
+    application.add_event_handler("startup", create_start_app_handler(application))
+    application.add_event_handler("shutdown", create_stop_app_handler(application))
+
+    application.add_exception_handler(HTTPException, http_error_handler)
+    application.add_exception_handler(RequestValidationError, http422_error_handler)
+
+    application.include_router(api_router, prefix=API_PREFIX)
+
+    return application
 
 
-def get_data_db():
-    with engine.connect() as con:
-        rs = con.execute("SELECT * FROM book")
-        for row in rs:
-            yield row
-
-
-app = FastAPI()
-
-
-@app.get("/")
-def home():
-    Base.metadata.create_all(bind=engine)
-
-    if len(list(get_data_db())) < 1:
-        init_db()
-
-    return {"books": list(get_data_db())}
+app = get_application()

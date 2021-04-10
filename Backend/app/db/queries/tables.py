@@ -26,4 +26,7 @@ class Users(TypedTable):
     __table__ = "users"
 
     id: int
-    username: str
+    email: str
+
+
+users = Users()

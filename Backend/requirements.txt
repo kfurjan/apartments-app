@@ -16,5 +16,11 @@ aiosql==3.2.0
 # database communication
 databases[postgresql]==0.4.3
 
+# database migration tool
+alembic==1.5.8
+
+# email validation
+email-validator==1.1.2
+
 # unit testing
 pytest==6.2.3
