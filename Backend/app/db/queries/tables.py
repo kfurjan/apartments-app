@@ -1,6 +1,11 @@
 from typing import Optional
 
-from pypika import Query, Table
+from pypika import Parameter as CommonParameter, Query, Table
+
+
+class Parameter(CommonParameter):
+    def __init__(self, count: int) -> None:
+        super().__init__("${0}".format(count))
 
 
 class TypedTable(Table):
