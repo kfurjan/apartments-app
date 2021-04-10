@@ -1,8 +1,9 @@
 
 -- name: get-user-by-email^
-SELECT id,
-       email,
-       password,
+SELECT 
+    id,
+    email,
+    password
 FROM users
 WHERE email = :email
 LIMIT 1;
