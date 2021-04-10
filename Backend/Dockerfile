@@ -14,5 +14,7 @@ RUN apt-get update && \
 
 COPY ./app ./app
 COPY requirements_docker.txt requirements_docker.txt
+COPY .env .env
+COPY alembic.ini alembic.ini
 
 RUN pip3 install -r requirements_docker.txt
