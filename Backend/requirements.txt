@@ -22,8 +22,5 @@ alembic==1.5.8
 # email validation
 email-validator==1.1.2
 
-# environment variables management
-python-dotenv==0.17.0
-
 # unit testing
 pytest==6.2.3
