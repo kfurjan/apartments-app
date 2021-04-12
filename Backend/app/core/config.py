@@ -1,14 +1,18 @@
 from typing import List
 
+import sqlalchemy
 from app.resources.strings import (
+    ALLOWED_HOSTS_ENV,
     DB_CONNECTION,
     DEBUG_ENV,
     ENVIRONMENT_FILE,
     MAX_CONNECTIONS_COUNT_ENV,
     MIN_CONNECTIONS_COUNT_ENV,
+    PROJECT_NAME_DESC,
+    PROJECT_NAME_ENV,
     SECRET_KEY_ENV,
 )
-from databases import DatabaseURL
+from databases import Database, DatabaseURL
 from starlette.config import Config
 from starlette.datastructures import CommaSeparatedStrings, Secret
 
@@ -27,9 +31,12 @@ DATABASE_URL: DatabaseURL = config(DB_CONNECTION, cast=DatabaseURL)
 MIN_CONNECTIONS_COUNT: int = config(MIN_CONNECTIONS_COUNT_ENV, cast=int, default=10)
 MAX_CONNECTIONS_COUNT: int = config(MAX_CONNECTIONS_COUNT_ENV, cast=int, default=10)
 
-PROJECT_NAME: str = config("PROJECT_NAME", default="apartmens-app REST API")
+db = Database(DATABASE_URL)
+metadata = sqlalchemy.MetaData()
+
+PROJECT_NAME: str = config(PROJECT_NAME_ENV, default=PROJECT_NAME_DESC)
 ALLOWED_HOSTS: List[str] = config(
-    "ALLOWED_HOSTS",
+    ALLOWED_HOSTS_ENV,
     cast=CommaSeparatedStrings,
     default="",
 )

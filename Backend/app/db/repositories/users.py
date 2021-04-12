@@ -1,28 +1,24 @@
 from app.db.errors import EntityDoesNotExist
-from app.db.queries.queries import queries
 from app.db.repositories.base import BaseRepository
-from app.models.domain.users import User
+from app.models.domain.users import User, users
 
 
 class UsersRepository(BaseRepository):
     async def get_user_by_email(self, *, email: str) -> User:
-        user_row = await queries.get_user_by_email(self.connection, email=email)
+        query = users.select().where(users.c.email == email)
+        user_row = await self.database.fetch_one(query)
+
         if user_row:
             return User(**user_row)
 
         raise EntityDoesNotExist(f"user with email {email} does not exist")
 
-    async def create_user(
-        self,
-        *,
-        email: str,
-        password: str,
-    ) -> User:
-        user = User(email=email, password=password)
+    async def create_user(self, *, user: User) -> User:
+        query = users.insert().values(**user.dict())
+        user_id = await self.database.execute(query)
 
-        async with self.connection.transaction():
-            user_row = await queries.create_new_user(
-                self.connection, email=user.email, password=password
-            )
+        query = users.select().where(users.c.id == user_id)
+        user_row = await self.database.fetch_one(query)
 
-        return user.copy(update=dict(user_row))
+        if user_row:
+            return User(**user_row)

@@ -29,6 +29,7 @@
         "aiosql",
         "apartmens",
         "asyncpg",
+        "dotenv",
         "dpage",
         "entrypoint",
         "fastapi",

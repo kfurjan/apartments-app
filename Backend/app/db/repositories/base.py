@@ -1,10 +1,10 @@
-from asyncpg.connection import Connection
+from databases import Database
 
 
 class BaseRepository:
-    def __init__(self, conn: Connection) -> None:
-        self._conn = conn
+    def __init__(self, database: Database) -> None:
+        self._database = database
 
     @property
-    def connection(self) -> Connection:
-        return self._conn
+    def database(self) -> Database:
+        return self._database
