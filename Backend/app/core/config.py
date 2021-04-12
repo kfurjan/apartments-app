@@ -2,11 +2,14 @@ from typing import List
 
 import sqlalchemy
 from app.resources.strings import (
+    ALLOWED_HOSTS_ENV,
     DB_CONNECTION,
     DEBUG_ENV,
     ENVIRONMENT_FILE,
     MAX_CONNECTIONS_COUNT_ENV,
     MIN_CONNECTIONS_COUNT_ENV,
+    PROJECT_NAME_DESC,
+    PROJECT_NAME_ENV,
     SECRET_KEY_ENV,
 )
 from databases import Database, DatabaseURL
@@ -31,9 +34,9 @@ MAX_CONNECTIONS_COUNT: int = config(MAX_CONNECTIONS_COUNT_ENV, cast=int, default
 db = Database(DATABASE_URL)
 metadata = sqlalchemy.MetaData()
 
-PROJECT_NAME: str = config("PROJECT_NAME", default="apartmens-app REST API")
+PROJECT_NAME: str = config(PROJECT_NAME_ENV, default=PROJECT_NAME_DESC)
 ALLOWED_HOSTS: List[str] = config(
-    "ALLOWED_HOSTS",
+    ALLOWED_HOSTS_ENV,
     cast=CommaSeparatedStrings,
     default="",
 )
