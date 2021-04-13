@@ -3,26 +3,26 @@ from app.core.config import metadata, sqlalchemy
 from sqlalchemy.sql import func
 
 
-class User(BaseModel):
-    email: str
-    password_digest: str
-
+class Rating(BaseModel):
     class Config(BaseConfig):
         orm_mode = True
 
 
-users = sqlalchemy.Table(
-    "users",
+ratings = sqlalchemy.Table(
+    "ratings",
     metadata,
     sqlalchemy.Column("id", sqlalchemy.Integer, primary_key=True),
     sqlalchemy.Column(
-        "email", sqlalchemy.Text, unique=True, nullable=False, index=True
+        "rated_by_user_id",
+        sqlalchemy.Integer,
+        sqlalchemy.ForeignKey("users.id"),
+        nullable=False,
+        index=True,
     ),
-    sqlalchemy.Column("password_digest", sqlalchemy.Text, nullable=False),
-    sqlalchemy.Column("first_name", sqlalchemy.Text),
-    sqlalchemy.Column("last_name", sqlalchemy.Text),
-    sqlalchemy.Column("oib", sqlalchemy.Text),
-    sqlalchemy.Column("date_of_birth", sqlalchemy.Text),
+    sqlalchemy.Column("rating", sqlalchemy.Numeric, nullable=False),
+    sqlalchemy.Column("comment", sqlalchemy.Text),
+    sqlalchemy.Column("subject_id", sqlalchemy.Integer, nullable=False),
+    sqlalchemy.Column("subject_type", sqlalchemy.Text, nullable=False),
     sqlalchemy.Column(
         "created_at", sqlalchemy.DateTime, nullable=False, server_default=func.now()
     ),
