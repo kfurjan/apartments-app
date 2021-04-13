@@ -259,7 +259,11 @@ def create_locations_table() -> None:
         sa.Column("title", sa.Text, nullable=False),
         sa.Column("description", sa.Text),
         sa.Column(
-            "type_id", sa.Integer, sa.ForeignKey("types.id"), nullable=False, index=True
+            "type_id",
+            sa.Integer,
+            sa.ForeignKey("location_types.id"),
+            nullable=False,
+            index=True,
         ),
         sa.Column("working_hours_monday", sa.Text),
         sa.Column("working_hours_tuesday", sa.Text),
@@ -333,15 +337,15 @@ def upgrade() -> None:
     create_apartments_table()
     create_apartment_details_table()
     create_reservations_table()
-    create_locations_table()
     create_location_types_table()
+    create_locations_table()
     create_ratings_table()
 
 
 def downgrade() -> None:
     op.drop_table("ratings")
-    op.drop_table("location_types")
     op.drop_table("locations")
+    op.drop_table("location_types")
     op.drop_table("reservations")
     op.drop_table("apartment_details")
     op.drop_table("apartments")
