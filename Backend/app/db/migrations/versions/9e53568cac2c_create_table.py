@@ -20,7 +20,19 @@ def create_users_table() -> None:
         "users",
         sa.Column("id", sa.Integer, primary_key=True),
         sa.Column("email", sa.Text, unique=True, nullable=False, index=True),
-        sa.Column("password", sa.Text),
+        sa.Column("password_digest", sa.Text, nullable=False),
+        sa.Column("first_name", sa.Text),
+        sa.Column("last_name", sa.Text),
+        sa.Column("oib", sa.Text),
+        sa.Column("date_of_birth", sa.Text),
+        sa.Column("created_at", sa.DateTime, nullable=False, server_default=func.now()),
+        sa.Column(
+            "updated_at",
+            sa.DateTime,
+            nullable=False,
+            server_default=func.now(),
+            onupdate=func.now(),
+        ),
     )
 
 
