@@ -1,3 +1,5 @@
+TEST
+
 # apartments-app
 
 Project for OICAR college course. Project consists off frontend, backend and mobile applications. For more information about each project and project dependencies, check each of the project's README pages.
