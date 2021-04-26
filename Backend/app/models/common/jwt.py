@@ -3,4 +3,4 @@ from pydantic import BaseModel
 
 
 class Settings(BaseModel):
-    authjwt_secret_key: str = SECRET_KEY
+    authjwt_secret_key: str = str(SECRET_KEY)

@@ -35,6 +35,7 @@
         "entrypoint",
         "fastapi",
         "initdb",
+        "onupdate",
         "pgadmin",
         "postgres",
         "postgresql",

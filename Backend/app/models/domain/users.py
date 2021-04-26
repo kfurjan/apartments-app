@@ -1,10 +1,11 @@
 from pydantic import BaseConfig, BaseModel
+from pydantic.networks import EmailStr
 from app.core.config import metadata, sqlalchemy
 from sqlalchemy.sql import func
 
 
 class User(BaseModel):
-    email: str
+    email: EmailStr
     password_digest: str
 
     class Config(BaseConfig):
