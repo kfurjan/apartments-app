@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.exceptions import RequestValidationError
+from fastapi_jwt_auth import AuthJWT
 from fastapi_jwt_auth.exceptions import AuthJWTException
 from starlette.exceptions import HTTPException
 from starlette.middleware.cors import CORSMiddleware
@@ -16,6 +17,7 @@ from app.core.config import (
     PROJECT_NAME,
     db,
 )
+from app.models.common.jwt import Settings
 
 app = FastAPI(title=PROJECT_NAME, debug=DEBUG, version=APP_VERSION)
 
@@ -26,6 +28,12 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@AuthJWT.load_config
+def get_config():
+    return Settings()
+
 
 app.add_exception_handler(HTTPException, http_error_handler)
 app.add_exception_handler(RequestValidationError, http422_error_handler)
