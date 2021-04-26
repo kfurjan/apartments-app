@@ -1,6 +1,7 @@
 # FastAPI dependencies
 fastapi==0.63.0
 uvicorn[standard]==0.13.4
+fastapi-jwt-auth==0.5.0
 
 # Data validation and settings management
 pydantic==1.8.1

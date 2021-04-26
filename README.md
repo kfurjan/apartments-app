@@ -5,7 +5,7 @@ Project for OICAR college course. Project consists off frontend, backend and mob
 ## Run application locally
 
 ```bash
-docker compose up
+docker compose up --build
 ```
 
 pgAdmin4 will be accessible on localhost on port 5050 (<http://localhost:5050>)  
