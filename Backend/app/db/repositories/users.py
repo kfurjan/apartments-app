@@ -11,7 +11,7 @@ class UsersRepository(BaseRepository):
         if user_row:
             return User(**user_row)
 
-        raise EntityDoesNotExist(f"user with email {email} does not exist")
+        raise EntityDoesNotExist(f"User with email {email} does not exist")
 
     async def create_user(self, *, user: User) -> User:
         query = users.insert().values(**user.dict())
