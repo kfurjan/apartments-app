@@ -11,3 +11,4 @@ ALLOWED_HOSTS_ENV = "ALLOWED_HOSTS"
 
 # EXCEPTION MESSAGES
 EMAIL_TAKEN = "User with this email already exists"
+INCORRECT_LOGIN_INPUT = "Incorrect email or password"
