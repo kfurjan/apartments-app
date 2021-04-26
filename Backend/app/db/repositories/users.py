@@ -4,6 +4,9 @@ from app.models.domain.users import User, users
 
 
 class UsersRepository(BaseRepository):
+    def table(self):
+        users
+
     async def get_user_by_email(self, *, email: str) -> User:
         query = users.select().where(users.c.email == email)
         user_row = await self.database.fetch_one(query)
