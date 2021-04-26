@@ -29,6 +29,7 @@
         "aiosql",
         "apartmens",
         "asyncpg",
+        "authjwt",
         "dotenv",
         "dpage",
         "entrypoint",
