@@ -1,7 +1,7 @@
 from app.db.repositories.base import BaseRepository
-from app.models.domain.renters import Renter, renters
+from app.models.domain.renters import renters
 
 
-class RentersRepository(BaseRepository[Renter]):
+class RentersRepository(BaseRepository):
     def table(self):
         return renters

@@ -1,7 +1,7 @@
 from app.db.repositories.base import BaseRepository
-from app.models.domain.services import Service, services
+from app.models.domain.services import services
 
 
-class ServicesRepository(BaseRepository[Service]):
+class ServicesRepository(BaseRepository):
     def table(self):
         return services

@@ -1,7 +1,7 @@
 from app.db.repositories.base import BaseRepository
-from app.models.domain.receipts import Receipt, receipts
+from app.models.domain.receipts import receipts
 
 
-class ReceiptsRepository(BaseRepository[Receipt]):
+class ReceiptsRepository(BaseRepository):
     def table(self):
         return receipts
