@@ -10,6 +10,14 @@ This repository will use [FastAPI real world example](https://github.com/nsidnev
 - Visual Studio Code
 - PyCharm IDE (Optional)
 
+## Links to documentation
+
+- REST API framework - [FastAPI](https://fastapi.tiangolo.com)
+- JWT authorization library - [FastAPI JWT Auth](https://indominusbyte.github.io/fastapi-jwt-auth/)
+- ORM tool - [SQLAlchemy](https://docs.sqlalchemy.org/en/14/)
+- database migration tool - [alembic](https://alembic.sqlalchemy.org/en/latest/)
+- unit test library - [pytest](https://docs.pytest.org/en/stable/)
+
 ## First time setup
 
 In order to enable IDE suggestions and autocompletion, dependencies should be installed locally before making any changes and starting to contribute to the project.
