@@ -1,30 +1,38 @@
 # from app.core.config import db
+from app.core.config import db
+from app.db.repositories.guests import GuestsRepository
+from typing import List
+from app.models.domain.guests import GuestOut, GuestInCreate, GuestInUpdate
 from fastapi import APIRouter
 
 router = APIRouter()
-# users_repo = UsersRepository(db)
+repo = GuestsRepository(db)
 
 
-@router.get("/")
+@router.get("/", response_model=List[GuestOut])
 async def get_all():
-    return {"key": "all"}
+    orm_models = await repo.get_all()
+    return list(map(lambda m: GuestOut(**m), orm_models))
 
 
-@router.get("/{id}")
+@router.get("/{id}", response_model=GuestOut)
 async def get(id: int):
-    return {"key": "single"}
+    orm_model = await repo.find_by_id(id)
+    return GuestOut(**orm_model)
 
 
-@router.post("/")
-async def create(id: int):
-    return {"key": "create"}
+@router.post("/", response_model=GuestOut)
+async def create(guest: GuestInCreate):
+    orm_model = await repo.create(guest)
+    return GuestOut(**orm_model)
 
 
-@router.put("/{id}")
-async def update(id: int):
-    return {"key": "update"}
+@router.put("/{id}", response_model=GuestOut)
+async def update(id, guest: GuestInUpdate):
+    orm_model = await repo.update(id, guest)
+    return GuestOut(**orm_model)
 
 
 @router.delete("/{id}")
 async def delete(id: int):
-    return {"key": "delete"}
+    return await repo.delete(id)
