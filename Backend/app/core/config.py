@@ -40,3 +40,5 @@ ALLOWED_HOSTS: List[str] = config(
     cast=CommaSeparatedStrings,
     default="",
 )
+
+jwt_token_denylist = set()

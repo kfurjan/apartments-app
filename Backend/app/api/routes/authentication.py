@@ -1,4 +1,4 @@
-from app.core.config import db
+from app.core.config import db, jwt_token_denylist
 from app.db.errors import EntityDoesNotExist
 from app.db.repositories.users import UsersRepository
 from app.models.domain.users import User
@@ -24,3 +24,11 @@ async def login(user: User, Authorize: AuthJWT = Depends()) -> User:
 
     access_token = Authorize.create_access_token(subject=str(user.email))
     return JSONResponse({"access_token": access_token})
+
+
+@router.post("/logout", name="authentication:logout")
+async def logout(Authorize: AuthJWT = Depends()) -> JSONResponse:
+    Authorize.jwt_required()
+    jwt_token_denylist.add(Authorize.get_raw_jwt()["jti"])
+
+    return JSONResponse({"detail": "Access token has been revoked"})
