@@ -1,11 +1,23 @@
-from pydantic import BaseConfig, BaseModel
+from datetime import datetime
+from typing import Optional
+from pydantic import BaseModel
 from app.core.config import metadata, sqlalchemy
 from sqlalchemy.sql import func
 
 
-class LocationType(BaseModel):
-    class Config(BaseConfig):
-        orm_mode = True
+class LocationTypeOut(BaseModel):
+    id: int
+    type: str
+    created_at: datetime
+    updated_at: datetime
+
+
+class LocationTypeInCreate(BaseModel):
+    type: str
+
+
+class LocationTypeInUpdate(BaseModel):
+    type: Optional[str]
 
 
 location_types = sqlalchemy.Table(

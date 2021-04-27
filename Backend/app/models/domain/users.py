@@ -1,3 +1,5 @@
+from datetime import datetime
+from typing import Optional
 from pydantic import BaseConfig, BaseModel
 from pydantic.networks import EmailStr
 from app.core.config import metadata, sqlalchemy
@@ -8,8 +10,35 @@ class User(BaseModel):
     email: EmailStr
     password_digest: str
 
-    class Config(BaseConfig):
-        orm_mode = True
+
+class UserOut(BaseModel):
+    id: int
+    email: str
+    password_digest: str
+    first_name: str
+    last_name: str
+    oib: str
+    date_of_birth: datetime
+    created_at: datetime
+    updated_at: datetime
+
+
+class UserInCreate(BaseModel):
+    email: str
+    password_digest: str
+    first_name: str
+    last_name: str
+    oib: str
+    date_of_birth: datetime
+
+
+class UserInUpdate(BaseModel):
+    email: Optional[str]
+    password_digest: Optional[str]
+    first_name: Optional[str]
+    last_name: Optional[str]
+    oib: Optional[str]
+    date_of_birth: Optional[datetime]
 
 
 users = sqlalchemy.Table(

@@ -1,11 +1,32 @@
-from pydantic import BaseConfig, BaseModel
+from datetime import datetime
+from typing import Optional
+from pydantic import BaseModel
 from app.core.config import metadata, sqlalchemy
 from sqlalchemy.sql import func
 
 
-class Receipt(BaseModel):
-    class Config(BaseConfig):
-        orm_mode = True
+class ReceiptOut(BaseModel):
+    id: int
+    receipt_number: str
+    total: float
+    guest_id: int
+    renter_id: int
+    created_at: datetime
+    updated_at: datetime
+
+
+class ReceiptInCreate(BaseModel):
+    receipt_number: str
+    total: float
+    guest_id: int
+    renter_id: int
+
+
+class ReceiptInUpdate(BaseModel):
+    receipt_number: Optional[str]
+    total: Optional[float]
+    guest_id: Optional[int]
+    renter_id: Optional[int]
 
 
 receipts = sqlalchemy.Table(

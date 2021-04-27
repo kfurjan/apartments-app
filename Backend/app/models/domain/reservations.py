@@ -1,11 +1,38 @@
-from pydantic import BaseConfig, BaseModel
+from datetime import datetime
+from typing import Optional
+from pydantic import BaseModel
 from app.core.config import metadata, sqlalchemy
 from sqlalchemy.sql import func
 
 
-class Reservation(BaseModel):
-    class Config(BaseConfig):
-        orm_mode = True
+class ReservationOut(BaseModel):
+    id: int
+    guest_id: int
+    apartment_id: int
+    number_of_guests: int
+    starts_at: datetime
+    ends_at: datetime
+    additional_details: Optional[dict]
+    created_at: datetime
+    updated_at: datetime
+
+
+class ReservationInCreate(BaseModel):
+    guest_id: int
+    apartment_id: int
+    number_of_guests: int
+    starts_at: datetime
+    ends_at: datetime
+    additional_details: Optional[dict]
+
+
+class ReservationInUpdate(BaseModel):
+    guest_id: Optional[int]
+    apartment_id: Optional[int]
+    number_of_guests: Optional[int]
+    starts_at: Optional[datetime]
+    ends_at: Optional[datetime]
+    additional_details: Optional[dict]
 
 
 reservations = sqlalchemy.Table(

@@ -1,11 +1,59 @@
-from pydantic import BaseConfig, BaseModel
+from datetime import datetime, date
+from typing import Optional
+from pydantic import BaseModel
 from app.core.config import metadata, sqlalchemy
 from sqlalchemy.sql import func
 
 
-class Apartment(BaseModel):
-    class Config(BaseConfig):
-        orm_mode = True
+class ApartmentOut(BaseModel):
+    id: int
+    title: Optional[str]
+    address: Optional[str]
+    city: Optional[str]
+    postal_code: Optional[str]
+    latitude: Optional[float]
+    longitude: Optional[float]
+    description: Optional[str]
+    price_per_night: Optional[int]
+    available: Optional[bool]
+    availability_start_date: Optional[date]
+    availability_end_date: Optional[date]
+    renter_id: Optional[int]
+    images: Optional[dict]
+    created_at: datetime
+    updated_at: datetime
+
+
+class ApartmentInCreate(BaseModel):
+    title: str
+    address: str
+    city: str
+    postal_code: str
+    latitude: float
+    longitude: float
+    description: str
+    price_per_night: int
+    available: bool
+    availability_start_date: date
+    availability_end_date: date
+    renter_id: int
+    images: Optional[dict]
+
+
+class ApartmentInUpdate(BaseModel):
+    title: Optional[str]
+    address: Optional[str]
+    city: Optional[str]
+    postal_code: Optional[str]
+    latitude: Optional[float]
+    longitude: Optional[float]
+    description: Optional[str]
+    price_per_night: Optional[int]
+    available: Optional[bool]
+    availability_start_date: Optional[date]
+    availability_end_date: Optional[date]
+    renter_id: Optional[int]
+    images: Optional[dict]
 
 
 apartments = sqlalchemy.Table(
