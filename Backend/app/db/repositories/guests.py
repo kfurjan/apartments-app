@@ -1,7 +1,7 @@
 from app.db.repositories.base import BaseRepository
-from app.models.domain.guests import Guest, guests
+from app.models.domain.guests import guests
 
 
-class GuestsRepository(BaseRepository[Guest]):
+class GuestsRepository(BaseRepository):
     def table(self):
-        guests
+        return guests

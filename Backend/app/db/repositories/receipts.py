@@ -4,4 +4,4 @@ from app.models.domain.receipts import Receipt, receipts
 
 class ReceiptsRepository(BaseRepository[Receipt]):
     def table(self):
-        receipts
+        return receipts

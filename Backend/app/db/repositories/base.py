@@ -1,11 +1,8 @@
 from databases import Database
-from pydantic import parse_obj_as
-from typing import List, TypeVar, Generic
-
-T = TypeVar("T")
+from app.db.errors import EntityDoesNotExist
 
 
-class BaseRepository(Generic[T]):
+class BaseRepository:
     def __init__(self, database: Database) -> None:
         self._database = database
 
@@ -13,41 +10,39 @@ class BaseRepository(Generic[T]):
     def database(self) -> Database:
         return self._database
 
-    @property
     def table(self):
         raise NotImplementedError
 
-    async def get_all(self) -> List[T]:
-        query = self.table.select()
-        rows = await self.database.fetch_all(query)
+    async def get_all(self):
+        query = self.table().select()
+        return await self.database.fetch_all(query)
 
-        parse_obj_as(List[T], rows)
+    async def find_by_id(self, id):
+        query = self.table().select().where(self.table().c.id == id)
+        model = await self.database.fetch_one(query)
 
-    async def find_by_id(self, id) -> T:
-        query = self.table.select().where(self.table.c.id == id)
-        row = await self.database.fetch_one(query)
+        if model:
+            return model
 
-        parse_obj_as(T, row)
+        raise EntityDoesNotExist(f"entity with id: {id} does not exist")
 
-    async def create(self, model) -> T:
-        query = self.users.insert().values(**model.dict())
+    async def create(self, model):
+        query = self.table().insert().values(**model.dict())
         new_id = await self.database.execute(query)
 
-        await self.find_by_id(new_id)
+        return await self.find_by_id(new_id)
 
-    async def update(self, model) -> T:
+    async def update(self, id, model):
         query = (
-            self.table.update()
-            .where(self.table.c.id == model.id)
-            .values(**model.dict())
+            self.table()
+            .update()
+            .where(self.table().c.id == id)
+            .values(**model.dict(exclude_unset=True))
         )
 
-        success = await self.database.execute(query)
-        result = await self.find_by_id(model.id)
-
-        if success:
-            parse_obj_as(T, result)
-
-    async def delete(self, id) -> bool:
-        query = self.table.delete().where(self.table.c.id == id)
         await self.database.execute(query)
+        return await self.find_by_id(model.id)
+
+    async def delete(self, id):
+        query = self.table().delete().where(self.table().c.id == id)
+        return await self.database.execute(query)
