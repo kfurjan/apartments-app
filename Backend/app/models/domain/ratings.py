@@ -1,11 +1,35 @@
-from pydantic import BaseConfig, BaseModel
+from datetime import datetime
+from typing import Optional
+from pydantic import BaseModel
 from app.core.config import metadata, sqlalchemy
 from sqlalchemy.sql import func
 
 
-class Rating(BaseModel):
-    class Config(BaseConfig):
-        orm_mode = True
+class RatingOut(BaseModel):
+    id: int
+    rated_by_user_id: int
+    rating: float
+    comment: int
+    subject_id: int
+    subject_type: str
+    created_at: datetime
+    updated_at: datetime
+
+
+class RatingInCreate(BaseModel):
+    rated_by_user_id: int
+    rating: float
+    comment: int
+    subject_id: int
+    subject_type: str
+
+
+class RatingInUpdate(BaseModel):
+    rated_by_user_id: Optional[int]
+    rating: Optional[float]
+    comment: Optional[int]
+    subject_id: Optional[int]
+    subject_type: Optional[str]
 
 
 ratings = sqlalchemy.Table(

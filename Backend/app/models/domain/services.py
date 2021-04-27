@@ -1,11 +1,29 @@
-from pydantic import BaseConfig, BaseModel
+from datetime import datetime
+from typing import Optional
+from pydantic import BaseModel
 from app.core.config import metadata, sqlalchemy
 from sqlalchemy.sql import func
 
 
-class Services(BaseModel):
-    class Config(BaseConfig):
-        orm_mode = True
+class ServiceOut(BaseModel):
+    id: int
+    name: str
+    description: str
+    price: float
+    created_at: datetime
+    updated_at: datetime
+
+
+class ServiceInCreate(BaseModel):
+    name: str
+    description: str
+    price: float
+
+
+class ServiceInUpdate(BaseModel):
+    name: Optional[str]
+    description: Optional[str]
+    price: Optional[float]
 
 
 services = sqlalchemy.Table(

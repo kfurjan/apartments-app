@@ -1,11 +1,56 @@
-from pydantic import BaseConfig, BaseModel
+from datetime import datetime, time
+from typing import Optional
+from pydantic import BaseModel
 from app.core.config import metadata, sqlalchemy
 from sqlalchemy.sql import func
 
 
-class Locations(BaseModel):
-    class Config(BaseConfig):
-        orm_mode = True
+class LocationsOut(BaseModel):
+    id: int
+    title: str
+    description: str
+    type_id: int
+    working_hours_monday: time
+    working_hours_tuesday: time
+    working_hours_wednesday: time
+    working_hours_thursday: time
+    working_hours_friday: time
+    working_hours_saturday: time
+    working_hours_sunday: time
+    additional_details: Optional[dict]
+    city: str
+    created_at: datetime
+    updated_at: datetime
+
+
+class LocationsInCreate(BaseModel):
+    title: str
+    description: str
+    type_id: int
+    working_hours_monday: time
+    working_hours_tuesday: time
+    working_hours_wednesday: time
+    working_hours_thursday: time
+    working_hours_friday: time
+    working_hours_saturday: time
+    working_hours_sunday: time
+    additional_details: Optional[dict]
+    city: str
+
+
+class LocationsInUpdate(BaseModel):
+    title: Optional[str]
+    description: Optional[str]
+    type_id: Optional[int]
+    working_hours_monday: Optional[time]
+    working_hours_tuesday: Optional[time]
+    working_hours_wednesday: Optional[time]
+    working_hours_thursday: Optional[time]
+    working_hours_friday: Optional[time]
+    working_hours_saturday: Optional[time]
+    working_hours_sunday: Optional[time]
+    additional_details: Optional[dict]
+    city: Optional[str]
 
 
 locations = sqlalchemy.Table(

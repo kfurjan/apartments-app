@@ -1,11 +1,29 @@
-from pydantic import BaseConfig, BaseModel
+from datetime import datetime
+from typing import Optional
+from pydantic import BaseModel
 from app.core.config import metadata, sqlalchemy
 from sqlalchemy.sql import func
 
 
-class Renter(BaseModel):
-    class Config(BaseConfig):
-        orm_mode = True
+class RenterOut(BaseModel):
+    id: int
+    user_id: int
+    address: str
+    city: str
+    created_at: datetime
+    updated_at: datetime
+
+
+class RenterInCreate(BaseModel):
+    user_id: int
+    address: str
+    city: str
+
+
+class RenterInUpdate(BaseModel):
+    user_id: Optional[int]
+    address: Optional[str]
+    city: Optional[str]
 
 
 renters = sqlalchemy.Table(

@@ -1,11 +1,26 @@
-from pydantic import BaseConfig, BaseModel
+from datetime import datetime
+from typing import Optional
+from pydantic import BaseModel
 from app.core.config import metadata, sqlalchemy
 from sqlalchemy.sql import func
 
 
-class Guest(BaseModel):
-    class Config(BaseConfig):
-        orm_mode = True
+class GuestOut(BaseModel):
+    id: int
+    documents: Optional[dict]
+    user_id: Optional[int]
+    created_at: datetime
+    updated_at: datetime
+
+
+class GuestInCreate(BaseModel):
+    documents: Optional[dict]
+    user_id: int
+
+
+class GuestInUpdate(BaseModel):
+    documents: Optional[dict]
+    user_id: Optional[int]
 
 
 guests = sqlalchemy.Table(
