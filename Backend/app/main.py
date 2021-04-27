@@ -16,6 +16,7 @@ from app.core.config import (
     DEBUG,
     PROJECT_NAME,
     db,
+    jwt_token_denylist,
 )
 from app.models.common.jwt import Settings
 
@@ -33,6 +34,11 @@ app.add_middleware(
 @AuthJWT.load_config
 def get_config():
     return Settings()
+
+
+@AuthJWT.token_in_denylist_loader
+def check_if_token_in_denylist(decrypted_token):
+    return decrypted_token["jti"] in jwt_token_denylist
 
 
 app.add_exception_handler(HTTPException, http_error_handler)
