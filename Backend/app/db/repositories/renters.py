@@ -4,4 +4,4 @@ from app.models.domain.renters import Renter, renters
 
 class RentersRepository(BaseRepository[Renter]):
     def table(self):
-        renters
+        return renters

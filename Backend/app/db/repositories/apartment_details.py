@@ -4,4 +4,4 @@ from app.models.domain.apartment_details import ApartmentDetail, apartment_detai
 
 class ApartmentDetailsRepository(BaseRepository[ApartmentDetail]):
     def table(self):
-        apartment_details
+        return apartment_details

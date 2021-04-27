@@ -4,4 +4,4 @@ from app.models.domain.services import Service, services
 
 class ServicesRepository(BaseRepository[Service]):
     def table(self):
-        services
+        return services
