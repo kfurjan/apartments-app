@@ -5,7 +5,7 @@ from app.core.config import metadata, sqlalchemy
 from sqlalchemy.sql import func
 
 
-class LocationsOut(BaseModel):
+class LocationOut(BaseModel):
     id: int
     title: str
     description: str
@@ -23,7 +23,7 @@ class LocationsOut(BaseModel):
     updated_at: datetime
 
 
-class LocationsInCreate(BaseModel):
+class LocationInCreate(BaseModel):
     title: str
     description: str
     type_id: int
@@ -38,7 +38,7 @@ class LocationsInCreate(BaseModel):
     city: str
 
 
-class LocationsInUpdate(BaseModel):
+class LocationInUpdate(BaseModel):
     title: Optional[str]
     description: Optional[str]
     type_id: Optional[int]

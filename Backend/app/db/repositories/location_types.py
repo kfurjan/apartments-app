@@ -1,7 +1,7 @@
 from app.db.repositories.base import BaseRepository
-from app.models.domain.location_types import LocationType, location_types
+from app.models.domain.location_types import location_types
 
 
-class LocationTypesRepository(BaseRepository[LocationType]):
+class LocationTypesRepository(BaseRepository):
     def table(self):
         return location_types

@@ -1,7 +1,7 @@
 from app.db.repositories.base import BaseRepository
-from app.models.domain.ratings import Rating, ratings
+from app.models.domain.ratings import ratings
 
 
-class RatingsRepository(BaseRepository[Rating]):
+class RatingsRepository(BaseRepository):
     def table(self):
         return ratings
