@@ -11,26 +11,26 @@ repo = GuestsRepository(db)
 
 @router.get("/", response_model=List[GuestOut])
 async def get_all():
-    orm_models = await repo.get_all()
-    return list(map(lambda m: GuestOut(**m), orm_models))
+    models = await repo.get_all()
+    return list(map(lambda m: GuestOut(**m), models))
 
 
 @router.get("/{id}", response_model=GuestOut)
 async def get(id: int):
-    orm_model = await repo.find_by_id(id)
-    return GuestOut(**orm_model)
+    model = await repo.find_by_id(id)
+    return GuestOut(**model)
 
 
 @router.post("/", response_model=GuestOut)
 async def create(guest: GuestInCreate):
-    orm_model = await repo.create(guest)
-    return GuestOut(**orm_model)
+    model = await repo.create(guest)
+    return GuestOut(**model)
 
 
 @router.put("/{id}", response_model=GuestOut)
 async def update(id, guest: GuestInUpdate):
-    orm_model = await repo.update(id, guest)
-    return GuestOut(**orm_model)
+    model = await repo.update(id, guest)
+    return GuestOut(**model)
 
 
 @router.delete("/{id}")
