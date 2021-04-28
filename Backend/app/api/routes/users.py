@@ -2,7 +2,10 @@ from app.core.config import db
 from app.db.repositories.users import UsersRepository
 from app.models.domain.users import User
 from app.resources import strings
-from app.services.authentication import check_email_is_taken
+from app.services.authentication import (
+    check_email_is_taken,
+    get_password_hash,
+)
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import JSONResponse
 from fastapi_jwt_auth import AuthJWT
@@ -24,7 +27,6 @@ async def retrieve_user(Authorize: AuthJWT = Depends()) -> User:
 @router.post(
     "",
     status_code=HTTP_201_CREATED,
-    response_model=User,
     name="users:create-user",
 )
 async def create_user(user: User, Authorize: AuthJWT = Depends()) -> JSONResponse:
@@ -34,7 +36,8 @@ async def create_user(user: User, Authorize: AuthJWT = Depends()) -> JSONRespons
             detail=strings.EMAIL_TAKEN,
         )
 
-    user = await users_repo.create_user(user=user)
+    user.password_digest = get_password_hash(user.password_digest)
+    user = await users_repo.create_user(user=User(**user.dict()))
 
     access_token = Authorize.create_access_token(subject=str(user.email))
     return JSONResponse({"access_token": access_token})

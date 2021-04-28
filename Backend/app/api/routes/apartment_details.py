@@ -1,4 +1,3 @@
-# from app.core.config import db
 from app.core.config import db
 from app.db.repositories.apartment_details import ApartmentDetailsRepository
 from typing import List

@@ -30,6 +30,7 @@
         "apartmens",
         "asyncpg",
         "authjwt",
+        "bcrypt",
         "dotenv",
         "dpage",
         "entrypoint",

@@ -11,5 +11,6 @@ ALLOWED_HOSTS_ENV = "ALLOWED_HOSTS"
 
 # EXCEPTION MESSAGES
 EMAIL_TAKEN = "User with this email already exists"
+INCORRECT_PASSWORD = "Incorrect password"
 INCORRECT_LOGIN_INPUT = "Incorrect email or password"
 NO_RECORD_WITH_ID = "Record with id: {id} does not exist"

@@ -13,6 +13,7 @@ from app.resources.strings import (
     SECRET_KEY_ENV,
 )
 from databases import Database, DatabaseURL
+from passlib.context import CryptContext
 from starlette.config import Config
 from starlette.datastructures import CommaSeparatedStrings, Secret
 
@@ -42,3 +43,4 @@ ALLOWED_HOSTS: List[str] = config(
 )
 
 jwt_token_denylist = set()
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
