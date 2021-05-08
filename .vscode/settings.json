@@ -1,5 +1,6 @@
 {
     "python.pythonPath": "${workspaceRoot}/backend/env/bin/python",
+    "python.envFile": "${workspaceRoot}/backend/.env",
     "python.analysis.extraPaths": ["./backend"],
     "python.languageServer": "Pylance",
     "[python]": {
@@ -28,6 +29,7 @@
         "UNPROCESSABLE",
         "aiosql",
         "apartmens",
+        "asyncio",
         "asyncpg",
         "authjwt",
         "bcrypt",
@@ -35,8 +37,10 @@
         "dpage",
         "entrypoint",
         "fastapi",
+        "httpx",
         "initdb",
         "onupdate",
+        "passlib",
         "pgadmin",
         "postgres",
         "postgresql",
@@ -44,6 +48,7 @@
         "pydantic",
         "pypika",
         "pytest",
+        "pytestmark",
         "starlette",
         "uvicorn",
         "venv"

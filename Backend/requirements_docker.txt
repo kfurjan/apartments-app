@@ -18,3 +18,8 @@ alembic==1.5.8
 
 # email validation
 email-validator==1.1.2
+
+# unit testing
+pytest==6.2.3
+pytest-dotenv==0.5.2
+requests==2.25.1
