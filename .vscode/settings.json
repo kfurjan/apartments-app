@@ -29,6 +29,7 @@
         "UNPROCESSABLE",
         "aiosql",
         "apartmens",
+        "asgi",
         "asyncio",
         "asyncpg",
         "authjwt",
