@@ -33,7 +33,8 @@ pip3 install -r requirements.txt
 
 Unit tests are written using [pytest](https://docs.pytest.org/en/stable/) library for Python. Tests can be executed by following instructions below
 
-```bash
-cd tests/
-pytest
-```
+1. execute ```docker compose up --build```
+
+2. using VS Code's Docker extension, attach shell to 'apartments-app_postgres_data' container
+
+3. once in container shell, execute ```pytest -v tests/```
