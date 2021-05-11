@@ -1,7 +1,9 @@
-from datetime import datetime, date
+from datetime import date, datetime
 from typing import Optional
-from pydantic import BaseModel
+
 from app.core.config import metadata, sqlalchemy
+from fastapi.params import Query
+from pydantic import BaseModel
 from sqlalchemy.sql import func
 
 
@@ -14,7 +16,7 @@ class ApartmentOut(BaseModel):
     latitude: Optional[float]
     longitude: Optional[float]
     description: Optional[str]
-    price_per_night: Optional[int]
+    price_per_night: Optional[float]
     available: Optional[bool]
     availability_start_date: Optional[date]
     availability_end_date: Optional[date]
@@ -32,7 +34,7 @@ class ApartmentInCreate(BaseModel):
     latitude: float
     longitude: float
     description: str
-    price_per_night: int
+    price_per_night: float
     available: bool
     availability_start_date: date
     availability_end_date: date
@@ -48,7 +50,7 @@ class ApartmentInUpdate(BaseModel):
     latitude: Optional[float]
     longitude: Optional[float]
     description: Optional[str]
-    price_per_night: Optional[int]
+    price_per_night: Optional[float]
     available: Optional[bool]
     availability_start_date: Optional[date]
     availability_end_date: Optional[date]
@@ -90,3 +92,15 @@ apartments = sqlalchemy.Table(
         onupdate=func.now(),
     ),
 )
+
+
+class ApartmentsQueryParams(BaseModel):
+    address: Optional[str] = Query(None, title="Apartment's address")
+    city: Optional[str] = Query(None, title="Apartment's city")
+    postal_code: Optional[str] = Query(None, title="Apartment's postal code")
+    latitude: Optional[float] = Query(None, title="Apartment's latitude")
+    longitude: Optional[float] = Query(None, title="Apartment's longitude")
+    price_per_night: Optional[float] = Query(None, title="Apartment's price")
+    available: Optional[bool] = Query(None, title="Is apartment available")
+    availability_start_date: Optional[date] = Query(None)
+    availability_end_date: Optional[date] = Query(None)
