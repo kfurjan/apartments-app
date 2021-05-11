@@ -1,16 +1,28 @@
+from typing import List
+
 from app.core.config import db
 from app.db.repositories.apartments import ApartmentsRepository
-from typing import List
-from app.models.domain.apartments import ApartmentOut, ApartmentInCreate, ApartmentInUpdate
-from fastapi import APIRouter
+from app.models.domain.apartments import (
+    ApartmentInCreate,
+    ApartmentInUpdate,
+    ApartmentOut,
+    ApartmentsQueryParams,
+)
+from fastapi import APIRouter, Request
+from fastapi.params import Depends
 
 router = APIRouter()
 repo = ApartmentsRepository(db)
 
 
 @router.get("/", response_model=List[ApartmentOut])
-async def get_all():
-    model = await repo.get_all()
+async def get_all(request: Request, _: ApartmentsQueryParams = Depends()):
+    model = (
+        await repo.get_all_filtered(ApartmentsQueryParams(**request.query_params))
+        if dict(request.query_params)
+        else await repo.get_all()
+    )
+
     return list(map(lambda m: ApartmentOut(**m), model))
 
 
