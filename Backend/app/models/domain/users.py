@@ -1,13 +1,12 @@
-from datetime import datetime
 from typing import Optional
-from pydantic import BaseConfig, BaseModel
+from pydantic import BaseModel
 from pydantic.networks import EmailStr
 from app.core.config import metadata, sqlalchemy
 from sqlalchemy.sql import func
 
 
-class User(BaseModel):
-    email: EmailStr
+class UserInLogin(BaseModel):
+    email: str
     password_digest: str
 
 
@@ -15,30 +14,19 @@ class UserOut(BaseModel):
     id: int
     email: str
     password_digest: str
-    first_name: str
-    last_name: str
-    oib: str
-    date_of_birth: datetime
-    created_at: datetime
-    updated_at: datetime
+    role: str
 
 
 class UserInCreate(BaseModel):
-    email: str
+    email: EmailStr
     password_digest: str
-    first_name: str
-    last_name: str
-    oib: str
-    date_of_birth: datetime
+    role: str
 
 
 class UserInUpdate(BaseModel):
     email: Optional[str]
     password_digest: Optional[str]
-    first_name: Optional[str]
-    last_name: Optional[str]
-    oib: Optional[str]
-    date_of_birth: Optional[datetime]
+    role: Optional[str]
 
 
 users = sqlalchemy.Table(
@@ -49,10 +37,7 @@ users = sqlalchemy.Table(
         "email", sqlalchemy.Text, unique=True, nullable=False, index=True
     ),
     sqlalchemy.Column("password_digest", sqlalchemy.Text, nullable=False),
-    sqlalchemy.Column("first_name", sqlalchemy.Text),
-    sqlalchemy.Column("last_name", sqlalchemy.Text),
-    sqlalchemy.Column("oib", sqlalchemy.Text),
-    sqlalchemy.Column("date_of_birth", sqlalchemy.Text),
+    sqlalchemy.Column("role", sqlalchemy.Text, nullable=False),
     sqlalchemy.Column(
         "created_at", sqlalchemy.DateTime, nullable=False, server_default=func.now()
     ),

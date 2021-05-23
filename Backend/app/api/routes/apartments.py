@@ -1,7 +1,7 @@
-from typing import List
-
+from app.db.repositories.renters import RentersRepository
 from app.core.config import db
 from app.db.repositories.apartments import ApartmentsRepository
+from typing import List
 from app.models.domain.apartments import (
     ApartmentInCreate,
     ApartmentInUpdate,
@@ -10,9 +10,12 @@ from app.models.domain.apartments import (
 )
 from fastapi import APIRouter, Request
 from fastapi.params import Depends
+from fastapi_jwt_auth import AuthJWT
+from app.services.authorization import authorize_renter
 
 router = APIRouter()
 repo = ApartmentsRepository(db)
+renters_repo = RentersRepository(db)
 
 
 @router.get("/", response_model=List[ApartmentOut])
@@ -33,17 +36,36 @@ async def get(id: int):
 
 
 @router.post("/", response_model=ApartmentOut)
-async def create(apartment: ApartmentInCreate):
+async def create(apartment: ApartmentInCreate, Authorize: AuthJWT = Depends()):
+    Authorize.jwt_required()
+    email = Authorize.get_jwt_subject()
+    user = await authorize_renter(email)
+    renter = renters_repo.get_renter_for_user(user.id)
+
+    apartment.renter_id = renter.id
     model = await repo.create(apartment)
     return ApartmentOut(**model)
 
 
 @router.put("/{id}", response_model=ApartmentOut)
-async def update(id, apartment: ApartmentInUpdate):
-    model = await repo.update(id, apartment)
-    return ApartmentOut(**model)
+async def update(id, apartment: ApartmentInUpdate, Authorize: AuthJWT = Depends()):
+    Authorize.jwt_required()
+    email = Authorize.get_jwt_subject()
+    user = await authorize_renter(email)
+    renter = renters_repo.get_renter_for_user(user.id)
+
+    if renter.id == apartment.renter_id:
+        model = await repo.update(id, apartment)
+        return ApartmentOut(**model)
 
 
 @router.delete("/{id}")
-async def delete(id: int):
-    return await repo.delete(id)
+async def delete(id: int, Authorize: AuthJWT = Depends()):
+    Authorize.jwt_required()
+    email = Authorize.get_jwt_subject()
+    user = await authorize_renter(email)
+    renter = renters_repo.get_renter_for_user(user.id)
+
+    model = await repo.find_by_id(id)
+    if model and renter.id == model.renter_id:
+        return await repo.delete(id)

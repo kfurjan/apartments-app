@@ -19,7 +19,6 @@ class ReceiptInCreate(BaseModel):
     receipt_number: str
     total: float
     guest_id: int
-    renter_id: int
 
 
 class ReceiptInUpdate(BaseModel):

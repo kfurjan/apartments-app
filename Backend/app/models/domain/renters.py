@@ -10,20 +10,32 @@ class RenterOut(BaseModel):
     user_id: int
     address: str
     city: str
+    first_name: str
+    last_name: str
+    oib: str
+    date_of_birth: datetime
     created_at: datetime
     updated_at: datetime
 
 
 class RenterInCreate(BaseModel):
-    user_id: int
+    user_id: Optional[int]
     address: str
     city: str
+    first_name: str
+    last_name: str
+    oib: str
+    date_of_birth: datetime
 
 
 class RenterInUpdate(BaseModel):
     user_id: Optional[int]
     address: Optional[str]
     city: Optional[str]
+    first_name: Optional[str]
+    last_name: Optional[str]
+    oib: Optional[str]
+    date_of_birth: Optional[datetime]
 
 
 renters = sqlalchemy.Table(
@@ -37,6 +49,10 @@ renters = sqlalchemy.Table(
         nullable=False,
         index=True,
     ),
+    sqlalchemy.Column("first_name", sqlalchemy.Text),
+    sqlalchemy.Column("last_name", sqlalchemy.Text),
+    sqlalchemy.Column("oib", sqlalchemy.Text),
+    sqlalchemy.Column("date_of_birth", sqlalchemy.Text),
     sqlalchemy.Column("address", sqlalchemy.Text),
     sqlalchemy.Column("city", sqlalchemy.Text),
     sqlalchemy.Column(

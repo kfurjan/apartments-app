@@ -1,7 +1,7 @@
 from app.core.config import db, jwt_token_denylist
 from app.db.errors import EntityDoesNotExist
 from app.db.repositories.users import UsersRepository
-from app.models.domain.users import User
+from app.models.domain.users import UserInLogin
 from app.resources import strings
 from app.services.authentication import verify_password
 from fastapi import APIRouter, Depends, HTTPException
@@ -14,7 +14,7 @@ users_repo = UsersRepository(db)
 
 
 @router.post("/login", name="authentication:login")
-async def login(user: User, Authorize: AuthJWT = Depends()) -> JSONResponse:
+async def login(user: UserInLogin, Authorize: AuthJWT = Depends()) -> JSONResponse:
     try:
         user_in_db = await users_repo.get_user(user=user)
     except EntityDoesNotExist:
@@ -26,7 +26,7 @@ async def login(user: User, Authorize: AuthJWT = Depends()) -> JSONResponse:
     if not verify_password(user.password_digest, user_in_db.password_digest):
         raise HTTPException(
             status_code=HTTP_400_BAD_REQUEST,
-            detail=strings.INCORRECT_PASSWORD,
+            detail=strings.INCORRECT_LOGIN_INPUT,
         )
 
     access_token = Authorize.create_access_token(subject=str(user.email))

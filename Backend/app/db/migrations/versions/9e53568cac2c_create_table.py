@@ -21,10 +21,7 @@ def create_users_table() -> None:
         sa.Column("id", sa.Integer, primary_key=True),
         sa.Column("email", sa.Text, unique=True, nullable=False, index=True),
         sa.Column("password_digest", sa.Text, nullable=False),
-        sa.Column("first_name", sa.Text),
-        sa.Column("last_name", sa.Text),
-        sa.Column("oib", sa.Text),
-        sa.Column("date_of_birth", sa.Text),
+        sa.Column("role", sa.Text, nullable=False),
         sa.Column("created_at", sa.DateTime, nullable=False, server_default=func.now()),
         sa.Column(
             "updated_at",
@@ -40,11 +37,15 @@ def create_renters_table() -> None:
     op.create_table(
         "renters",
         sa.Column("id", sa.Integer, primary_key=True),
+        sa.Column("first_name", sa.Text),
+        sa.Column("last_name", sa.Text),
+        sa.Column("oib", sa.Text),
+        sa.Column("date_of_birth", sa.Text),
+        sa.Column("address", sa.Text),
+        sa.Column("city", sa.Text),
         sa.Column(
             "user_id", sa.Integer, sa.ForeignKey("users.id"), nullable=False, index=True
         ),
-        sa.Column("address", sa.Text),
-        sa.Column("city", sa.Text),
         sa.Column("created_at", sa.DateTime, nullable=False, server_default=func.now()),
         sa.Column(
             "updated_at",
@@ -60,6 +61,10 @@ def create_guests_table() -> None:
     op.create_table(
         "guests",
         sa.Column("id", sa.Integer, primary_key=True),
+        sa.Column("first_name", sa.Text),
+        sa.Column("last_name", sa.Text),
+        sa.Column("oib", sa.Text),
+        sa.Column("date_of_birth", sa.Text),
         sa.Column("documents", sa.JSON),
         sa.Column(
             "user_id", sa.Integer, sa.ForeignKey("users.id"), nullable=False, index=True

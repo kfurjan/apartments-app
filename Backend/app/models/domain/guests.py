@@ -9,18 +9,30 @@ class GuestOut(BaseModel):
     id: int
     documents: Optional[dict]
     user_id: Optional[int]
+    first_name: str
+    last_name: str
+    oib: str
+    date_of_birth: datetime
     created_at: datetime
     updated_at: datetime
 
 
 class GuestInCreate(BaseModel):
     documents: Optional[dict]
-    user_id: int
+    user_id: Optional[int]
+    first_name: str
+    last_name: str
+    oib: str
+    date_of_birth: datetime
 
 
 class GuestInUpdate(BaseModel):
     documents: Optional[dict]
     user_id: Optional[int]
+    first_name: Optional[str]
+    last_name: Optional[str]
+    oib: Optional[str]
+    date_of_birth: Optional[datetime]
 
 
 guests = sqlalchemy.Table(
@@ -35,6 +47,10 @@ guests = sqlalchemy.Table(
         nullable=False,
         index=True,
     ),
+    sqlalchemy.Column("first_name", sqlalchemy.Text),
+    sqlalchemy.Column("last_name", sqlalchemy.Text),
+    sqlalchemy.Column("oib", sqlalchemy.Text),
+    sqlalchemy.Column("date_of_birth", sqlalchemy.Text),
     sqlalchemy.Column(
         "created_at", sqlalchemy.DateTime, nullable=False, server_default=func.now()
     ),

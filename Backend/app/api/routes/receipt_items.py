@@ -6,36 +6,54 @@ from app.models.domain.receipt_items import (
     ReceiptItemInCreate,
     ReceiptItemInUpdate,
 )
-from fastapi import APIRouter
+from fastapi_jwt_auth import AuthJWT
+from app.services.authorization import authorize_renter
+from fastapi import APIRouter, Depends
 
 router = APIRouter()
 repo = ReceiptItemsRepository(db)
 
 
 @router.get("/", response_model=List[ReceiptItemOut])
-async def get_all():
-    model = await repo.get_all()
-    return list(map(lambda m: ReceiptItemOut(**m), model))
+async def get_all(receipt_id: int, Authorize: AuthJWT = Depends()):
+    Authorize.jwt_required()
+
+    if receipt_id:
+        model = await repo.get_all_for_receipt(receipt_id)
+        return list(map(lambda m: ReceiptItemOut(**m), model))
 
 
 @router.get("/{id}", response_model=ReceiptItemOut)
-async def get(id: int):
+async def get(id: int, Authorize: AuthJWT = Depends()):
+    Authorize.jwt_required()
     model = await repo.find_by_id(id)
     return ReceiptItemOut(**model)
 
 
 @router.post("/", response_model=ReceiptItemOut)
-async def create(receipt_item: ReceiptItemInCreate):
+async def create(receipt_item: ReceiptItemInCreate, Authorize: AuthJWT = Depends()):
+    Authorize.jwt_required()
+    email = Authorize.get_jwt_subject()
+    await authorize_renter(email)
+
     model = await repo.create(receipt_item)
     return ReceiptItemOut(**model)
 
 
 @router.put("/{id}", response_model=ReceiptItemOut)
-async def update(id, receipt_item: ReceiptItemInUpdate):
+async def update(id, receipt_item: ReceiptItemInUpdate, Authorize: AuthJWT = Depends()):
+    Authorize.jwt_required()
+    email = Authorize.get_jwt_subject()
+    await authorize_renter(email)
+
     model = await repo.update(id, receipt_item)
     return ReceiptItemOut(**model)
 
 
 @router.delete("/{id}")
-async def delete(id: int):
+async def delete(id: int, Authorize: AuthJWT = Depends()):
+    Authorize.jwt_required()
+    email = Authorize.get_jwt_subject()
+    await authorize_renter(email)
+
     return await repo.delete(id)
