@@ -37,6 +37,7 @@ Login credentials
 Access database from pgAdmin4
 
 - host: host.docker.internal
+- port: 5433
 - database: apartments_db
 - username: ${POSTGRES_USER}
 - password: ${POSTGRES_PASSWORD}
