@@ -24,8 +24,10 @@
     
     "cSpell.words": [
         "Apartmani",
+        "Jetbrains",
         "Karlo",
         "OICAR",
+        "Podfile",
         "UNPROCESSABLE",
         "aiosql",
         "apartmens",
@@ -52,6 +54,7 @@
         "pytestmark",
         "starlette",
         "uvicorn",
-        "venv"
+        "venv",
+        "xcworkspace"
     ],
 }
