@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State var loginFormState: LoginFormState = .loginForm
+    @StateObject var model = LoginViewModel()
 
     var body: some View {
         GeometryReader { _ in
@@ -19,16 +19,17 @@ struct LoginView: View {
                     .foregroundColor(Color(secondaryColor))
 
                 ZStack {
-                    SignUpForm(state: self.$loginFormState)
-                        .zIndex(Double(self.loginFormState.rawValue))
+                    SignUpForm()
+                        .zIndex(Double(self.model.formModel.formState.rawValue))
 
-                    LoginForm(state: self.$loginFormState)
+                    LoginForm()
                 }
             }
             .padding(.vertical)
         }
         .background(Color(primaryColor)
         .edgesIgnoringSafeArea(.all))
+        .environmentObject(model)
     }
 }
 

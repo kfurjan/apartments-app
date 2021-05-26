@@ -7,7 +7,10 @@
 
 import Foundation
 
-struct User {
-    let firstName: String
-    let lastName: String
+class User: Identifiable {
+    let idUser = UUID()
+    let email = ""
+    let firstName = ""
+    let lastName = ""
+    let oib = ""
 }

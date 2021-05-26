@@ -2,7 +2,7 @@
 //  ShapeUtilities.swift
 //  ApartmentsAppMobile
 //
-//  Created by Ericsson on 25.05.2021..
+//  Created by Kevin Furjan on 25.05.2021.
 //
 
 import SwiftUI

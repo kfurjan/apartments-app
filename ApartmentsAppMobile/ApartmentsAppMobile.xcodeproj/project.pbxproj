@@ -10,11 +10,12 @@
 		271A39A69880DCC75CB77CDE /* Pods_ApartmentsAppMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26565EFFB15B1129073ACAC8 /* Pods_ApartmentsAppMobile.framework */; };
 		9F92F447733FC999767F251B /* Pods_ApartmentsAppMobile_ApartmentsAppMobileUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A72E2671E4D072C48312164D /* Pods_ApartmentsAppMobile_ApartmentsAppMobileUITests.framework */; };
 		D7A925FF2802C60652F57C06 /* Pods_ApartmentsAppMobileTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C85586E852D58E91CD63F76 /* Pods_ApartmentsAppMobileTests.framework */; };
+		E91B6F79265EAF2F001A3240 /* FormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91B6F78265EAF2F001A3240 /* FormModel.swift */; };
 		E91C75AD265D3555005F0FA0 /* ShapeUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91C75AC265D3555005F0FA0 /* ShapeUtilities.swift */; };
 		E91C75AF265D3599005F0FA0 /* LoginForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91C75AE265D3599005F0FA0 /* LoginForm.swift */; };
 		E91C75B1265D360E005F0FA0 /* SignUpForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91C75B0265D360E005F0FA0 /* SignUpForm.swift */; };
 		E91C75B3265D3CDC005F0FA0 /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91C75B2265D3CDC005F0FA0 /* StringConstants.swift */; };
-		E938022A265E20230019E3F6 /* LoginFormState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9380229265E20230019E3F6 /* LoginFormState.swift */; };
+		E938022A265E20230019E3F6 /* FormState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9380229265E20230019E3F6 /* FormState.swift */; };
 		E9A58AE1265C301400B3F91D /* ApartmentsAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A58AE0265C301400B3F91D /* ApartmentsAppApp.swift */; };
 		E9A58AE3265C301400B3F91D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A58AE2265C301400B3F91D /* ContentView.swift */; };
 		E9A58AE5265C301500B3F91D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9A58AE4265C301500B3F91D /* Assets.xcassets */; };
@@ -59,11 +60,12 @@
 		AA3790522B7ADEF4180267BE /* Pods-ApartmentsApp-ApartmentsAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApartmentsApp-ApartmentsAppUITests.release.xcconfig"; path = "Target Support Files/Pods-ApartmentsApp-ApartmentsAppUITests/Pods-ApartmentsApp-ApartmentsAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D41CCC4892E625DA2FE587B8 /* Pods-ApartmentsApp-ApartmentsAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApartmentsApp-ApartmentsAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-ApartmentsApp-ApartmentsAppUITests/Pods-ApartmentsApp-ApartmentsAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D53663465637A7D613DC8293 /* Pods-ApartmentsAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApartmentsAppTests.debug.xcconfig"; path = "Target Support Files/Pods-ApartmentsAppTests/Pods-ApartmentsAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E91B6F78265EAF2F001A3240 /* FormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormModel.swift; sourceTree = "<group>"; };
 		E91C75AC265D3555005F0FA0 /* ShapeUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeUtilities.swift; sourceTree = "<group>"; };
 		E91C75AE265D3599005F0FA0 /* LoginForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginForm.swift; sourceTree = "<group>"; };
 		E91C75B0265D360E005F0FA0 /* SignUpForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpForm.swift; sourceTree = "<group>"; };
 		E91C75B2265D3CDC005F0FA0 /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
-		E9380229265E20230019E3F6 /* LoginFormState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormState.swift; sourceTree = "<group>"; };
+		E9380229265E20230019E3F6 /* FormState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormState.swift; sourceTree = "<group>"; };
 		E9A58ADD265C301400B3F91D /* ApartmentsAppMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApartmentsAppMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9A58AE0265C301400B3F91D /* ApartmentsAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApartmentsAppApp.swift; sourceTree = "<group>"; };
 		E9A58AE2265C301400B3F91D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -136,6 +138,15 @@
 				78E33726D020625DE263861C /* Pods-ApartmentsAppMobileTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		E91B6F77265EAF18001A3240 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E91B6F78265EAF2F001A3240 /* FormModel.swift */,
+				E9380229265E20230019E3F6 /* FormState.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		E91C75AB265D353D005F0FA0 /* Utilities */ = {
@@ -232,8 +243,8 @@
 		E9A58B0D265C30A500B3F91D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E91B6F77265EAF18001A3240 /* Login */,
 				E9A58B12265C336100B3F91D /* User.swift */,
-				E9380229265E20230019E3F6 /* LoginFormState.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -458,9 +469,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E91C75AD265D3555005F0FA0 /* ShapeUtilities.swift in Sources */,
-				E938022A265E20230019E3F6 /* LoginFormState.swift in Sources */,
+				E938022A265E20230019E3F6 /* FormState.swift in Sources */,
 				E9A58B11265C335400B3F91D /* LoginViewModel.swift in Sources */,
 				E91C75B3265D3CDC005F0FA0 /* StringConstants.swift in Sources */,
+				E91B6F79265EAF2F001A3240 /* FormModel.swift in Sources */,
 				E9A58B0F265C331F00B3F91D /* LoginView.swift in Sources */,
 				E9A58AE3265C301400B3F91D /* ContentView.swift in Sources */,
 				E91C75AF265D3599005F0FA0 /* LoginForm.swift in Sources */,

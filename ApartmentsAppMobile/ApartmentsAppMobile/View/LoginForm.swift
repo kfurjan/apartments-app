@@ -8,20 +8,16 @@
 import SwiftUI
 
 struct LoginForm: View {
-    @State var email = ""
-    @State var password = ""
-    @Binding var state: LoginFormState
+    @EnvironmentObject private var model: LoginViewModel
 
-    var foregroundColor: Color {
-        self.state == .loginForm ? .white : .gray
+    private var foregroundColor: Color {
+        model.getFormState() == .loginForm ? .white : .gray
     }
-
-    var capsuleFill: Color {
-        self.state == .loginForm ? Color.blue : Color.clear
+    private var capsuleFill: Color {
+        model.getFormState() == .loginForm ? Color.blue : Color.clear
     }
-
-    var buttonOpacity: Double {
-        self.state == .loginForm ? 1 : 0
+    private var buttonOpacity: Double {
+        model.getFormState() == .loginForm ? 1 : 0
     }
 
     var body: some View {
@@ -46,7 +42,7 @@ struct LoginForm: View {
                         Image(systemName: filledEnvelope)
                         .foregroundColor(Color(secondaryColor))
 
-                        TextField(emailAddressHint, text: self.$email)
+                        TextField(emailAddressHint, text: $model.formModel.email)
                     }
                     Divider().background(Color.white.opacity(0.5))
                 }
@@ -58,7 +54,7 @@ struct LoginForm: View {
                         Image(systemName: filledSlashedEye)
                         .foregroundColor(Color(secondaryColor))
 
-                        SecureField(passwordHint, text: self.$password)
+                        SecureField(passwordHint, text: $model.formModel.password)
                     }
                     Divider().background(Color.white.opacity(0.5))
                 }
@@ -84,7 +80,7 @@ struct LoginForm: View {
             .contentShape(ClipTopRightCorner())
             .shadow(color: Color.black.opacity(0.3), radius: 5, x: 0, y: -5)
             .onTapGesture {
-                self.state = .loginForm
+                model.setFormState(formState: .loginForm)
             }
             .cornerRadius(35)
             .padding(.horizontal, 20)
@@ -104,12 +100,24 @@ struct LoginForm: View {
             .offset(y: 25)
             .opacity(buttonOpacity)
         }
+        .onChange(of: model.formModel.formState, perform: { _ in
+            model.cleanUp()
+        })
     }
 }
 
 struct LoginForm_Previews: PreviewProvider {
     static var previews: some View {
-        LoginForm(state: .constant(.loginForm))
-            .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
+        Group {
+            LoginForm()
+                .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
+                .environmentObject(LoginViewModel(isPreview: false))
+                .previewDisplayName("On focus")
+
+            LoginForm()
+                .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
+                .environmentObject(LoginViewModel(isPreview: true))
+                .previewDisplayName("Out of focus")
+        }
     }
 }

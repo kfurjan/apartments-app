@@ -8,10 +8,17 @@
 import SwiftUI
 
 struct SignUpForm: View {
-    @State var email = ""
-    @State var password = ""
-    @State var repeatPassword = ""
-    @Binding var state: LoginFormState
+    @EnvironmentObject private var model: LoginViewModel
+
+    private var foregroundColor: Color {
+        model.getFormState() == .signUpForm ? .white : .gray
+    }
+    private var capsuleFill: Color {
+        model.getFormState() == .signUpForm ? Color.blue : Color.clear
+    }
+    private var buttonOpacity: Double {
+        model.getFormState() == .signUpForm ? 1 : 0
+    }
 
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -20,12 +27,12 @@ struct SignUpForm: View {
                     Spacer(minLength: 0)
                     VStack(spacing: 10) {
                         Text(signUp)
-                            .foregroundColor(self.state == .signUpForm ? .white : .gray)
+                            .foregroundColor(foregroundColor)
                             .font(.title)
                             .fontWeight(.bold)
 
                         Capsule()
-                            .fill(self.state == .signUpForm ? Color.blue : Color.clear)
+                            .fill(capsuleFill)
                             .frame(width: 100, height: 5)
                     }
                 }
@@ -36,7 +43,7 @@ struct SignUpForm: View {
                         Image(systemName: filledEnvelope)
                         .foregroundColor(Color(secondaryColor))
 
-                        TextField(emailAddressHint, text: self.$email)
+                        TextField(emailAddressHint, text: $model.formModel.email)
                     }
                     Divider().background(Color.white.opacity(0.5))
                 }
@@ -48,7 +55,7 @@ struct SignUpForm: View {
                         Image(systemName: filledSlashedEye)
                         .foregroundColor(Color(secondaryColor))
 
-                        SecureField(passwordHint, text: self.$password)
+                        SecureField(passwordHint, text: $model.formModel.password)
                     }
                     Divider().background(Color.white.opacity(0.5))
                 }
@@ -60,7 +67,7 @@ struct SignUpForm: View {
                         Image(systemName: filledSlashedEye)
                         .foregroundColor(Color(secondaryColor))
 
-                        SecureField(passwordHint, text: self.$repeatPassword)
+                        SecureField(passwordHint, text: $model.formModel.repeatPassword)
                     }
                     Divider().background(Color.white.opacity(0.5))
                 }
@@ -74,7 +81,7 @@ struct SignUpForm: View {
             .contentShape(ClipTopLeftCorner())
             .shadow(color: Color.black.opacity(0.3), radius: 5, x: 0, y: -5)
             .onTapGesture {
-                self.state = .signUpForm
+                model.setFormState(formState: .signUpForm)
             }
             .cornerRadius(35)
             .padding(.horizontal, 20)
@@ -92,14 +99,26 @@ struct SignUpForm: View {
                     .shadow(color: Color.white.opacity(0.1), radius: 5, x: 0, y: 5)
             }
             .offset(y: 25)
-            .opacity(self.state == .signUpForm ? 1 : 0)
+            .opacity(buttonOpacity)
         }
+        .onChange(of: model.formModel.formState, perform: { _ in
+            model.cleanUp()
+        })
     }
 }
 
 struct SignUpForm_Previews: PreviewProvider {
     static var previews: some View {
-        SignUpForm(state: .constant(.signUpForm))
-            .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
+        Group {
+            SignUpForm()
+                .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
+                .environmentObject(LoginViewModel(isPreview: true))
+                .previewDisplayName("On focus")
+
+            SignUpForm()
+                .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
+                .environmentObject(LoginViewModel(isPreview: false))
+                .previewDisplayName("Out of focus")
+        }
     }
 }

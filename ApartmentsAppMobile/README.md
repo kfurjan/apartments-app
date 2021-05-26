@@ -13,11 +13,12 @@ Mobile application (iOS) for apartmens-app. Project is being developed with Swif
 
 - Swift programming language - [Swift](https://swift.org/documentation/)
 - SwiftUI framework - [SwiftUI](https://developer.apple.com/documentation/swiftui)
+- SwiftLint - [SwiftUI](https://realm.github.io/SwiftLint/)
 - CocoaPods package manager - [CocoaPods](https://cocoapods.org)
 
 ## First time setup
 
-1. using Finder, position info *ApartmentsAppMobile/ApartmentsAppMobile*
+1. using Finder, position into *ApartmentsAppMobile/ApartmentsAppMobile*
 
 2. double click on *ApartmentsAppMobile.xcworkspace*
 
