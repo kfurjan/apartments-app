@@ -2,7 +2,7 @@
 //  ApartmentsAppApp.swift
 //  ApartmentsApp
 //
-//  Created by Ericsson on 24.05.2021..
+//  Created by Kevin Furjan on 24.05.2021.
 //
 
 import SwiftUI
