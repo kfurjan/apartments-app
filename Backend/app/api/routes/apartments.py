@@ -67,7 +67,7 @@ async def update(id: int, apartment: ApartmentInUpdate, Authorize: AuthJWT = Dep
     Authorize.jwt_required()
     email = Authorize.get_jwt_subject()
     user = await authorize_renter(email)
-    renter = renters_repo.get_renter_for_user(user.id)
+    renter = await renters_repo.get_renter_for_user(user.id)
 
     if renter.id == apartment.renter_id:
         model = await repo.update(id, apartment)

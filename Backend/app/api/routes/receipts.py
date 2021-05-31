@@ -21,11 +21,11 @@ async def get_all(Authorize: AuthJWT = Depends()):
     user = await authorize_guest_or_renter(email)
 
     if user.role == "renter":
-        renter = renters_repo.get_renter_for_user(user.id)
+        renter = await renters_repo.get_renter_for_user(user.id)
         model = await repo.get_all_for_renter(renter.id)
         return list(map(lambda m: ReceiptOut(**m), model))
     else:
-        guest = guests_repo.get_guest_for_user(user.id)
+        guest = await guests_repo.get_guest_for_user(user.id)
         model = await repo.get_all_for_guest(guest.id)
         return list(map(lambda m: ReceiptOut(**m), model))
 
@@ -39,11 +39,11 @@ async def get(id: int, Authorize: AuthJWT = Depends()):
     model = await repo.find_by_id(id)
 
     if user.role == "renter":
-        renter = renters_repo.get_renter_for_user(user.id)
+        renter = await renters_repo.get_renter_for_user(user.id)
         if model["renter_id"] == renter.id:
             return ReceiptOut(**model)
     else:
-        guest = guests_repo.get_guest_for_user(user.id)
+        guest = await guests_repo.get_guest_for_user(user.id)
         if model["guest_id"] == guest.id:
             return ReceiptOut(**model)
 
@@ -54,7 +54,7 @@ async def create(receipt: ReceiptInCreate, Authorize: AuthJWT = Depends()):
     email = Authorize.get_jwt_subject()
     user = await authorize_renter(email)
 
-    renter = renters_repo.get_renter_for_user(user.id)
+    renter = await renters_repo.get_renter_for_user(user.id)
 
     receipt["renter_id"] = renter.id
     model = await repo.create(receipt)
@@ -70,12 +70,12 @@ async def update(id: int, receipt: ReceiptInUpdate, Authorize: AuthJWT = Depends
     model = await repo.find_by_id(id)
 
     if user.role == "renter":
-        renter = renters_repo.get_renter_for_user(user.id)
+        renter = await renters_repo.get_renter_for_user(user.id)
         if model["renter_id"] == renter.id:
             receipt = await repo.update(id, model)
             return ReceiptOut(**receipt)
     else:
-        guest = guests_repo.get_guest_for_user(user.id)
+        guest = await guests_repo.get_guest_for_user(user.id)
         if model["guest_id"] == guest.id:
             receipt = await repo.update(id, model)
             return ReceiptOut(**receipt)

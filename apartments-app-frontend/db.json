@@ -1,0 +1,96 @@
+{
+  "apartments": [
+    {
+      "id": 1,
+      "title": "Beautiful apartment",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.\nQuibusdam recusandae reiciendis odit est, obcaecati modi odio nemo!\nCum quidem alias ea! Quibusdam eos est ad, eum animi at eligendi atque.",
+      "rating": 4.9,
+      "price_per_night": 45,
+      "images": [
+        "apartment1.jpeg",
+        "apartment3.jpeg",
+        "apartment4.jpeg",
+        "apartment2.jpeg",
+        "apartment1.jpeg"
+      ],
+      "address": "Adress 1",
+      "city": "Šibenik",
+      "postal_code": "22000",
+      "latitude": 43,
+      "longitude": 42,
+      "available": true,
+      "availability_start_date": "2021-06-23",
+      "availability_end_date": "2021-09-23",
+      "renter_id": 0,
+      "created_at": "2021-06-23T09:15:13.431Z",
+      "updated_at": "2021-06-23T09:15:13.431Z"
+    },
+    {
+      "id": 2,
+      "title": "Long description apartment",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.\nQuibusdam recusandae reiciendis odit est, obcaecati modi odio nemo!\nCum quidem alias ea! Quibusdam eos est ad, eum animi at eligendi atque.Lorem ipsum dolor sit amet consectetur adipisicing elit.\nQuibusdam recusandae reiciendis odit est, obcaecati modi odio nemo!\nCum quidem alias ea! Quibusdam eos est ad, eum animi at eligendi atque.Lorem ipsum dolor sit amet consectetur adipisicing elit.\nQuibusdam recusandae reiciendis odit est, obcaecati modi odio nemo!\nCum quidem alias ea! Quibusdam eos est ad, eum animi at eligendi atque.Lorem ipsum dolor sit amet consectetur adipisicing elit.\nQuibusdam recusandae reiciendis odit est, obcaecati modi odio nemo!\nCum quidem alias ea! Quibusdam eos est ad, eum animi at eligendi atque.Lorem ipsum dolor sit amet consectetur adipisicing elit.\nQuibusdam recusandae reiciendis odit est, obcaecati modi odio nemo!\nCum quidem alias ea! Quibusdam eos est ad, eum animi at eligendi atque.",
+      "rating": 4.1,
+      "price_per_night": 38,
+      "images": [
+        "apartment2.jpeg",
+        "apartment3.jpeg"
+      ],
+      "address": "Address 2",
+      "city": "Šibenik",
+      "postal_code": "22000",
+      "latitude": 0,
+      "longitude": 0,
+      "available": true,
+      "availability_start_date": "2021-06-01",
+      "availability_end_date": "2021-08-20",
+      "renter_id": 0,
+      "created_at": "2021-06-23T09:15:13.431Z",
+      "updated_at": "2021-06-23T09:15:13.431Z"
+    },
+    {
+      "id": 3,
+      "title": "One more apartment",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.\nQuibusdam recusandae reiciendis odit est, obcaecati modi odio nemo!\nCum quidem alias ea! Quibusdam eos est ad, eum animi at eligendi atque.",
+      "rating": 3.2,
+      "price_per_night": 41,
+      "images": [
+        "apartment3.jpeg",
+        "apartment1.jpeg",
+        "apartment4.jpeg"
+      ],
+      "address": "Address 3",
+      "city": "Split",
+      "postal_code": "21000",
+      "latitude": 0,
+      "longitude": 0,
+      "available": true,
+      "availability_start_date": "2021-07-25",
+      "availability_end_date": "2021-08-28",
+      "renter_id": 0,
+      "created_at": "2021-06-23T09:15:13.431Z",
+      "updated_at": "2021-06-23T09:15:13.431Z"
+    },
+    {
+      "id": 4,
+      "title": "Last one",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.\nQuibusdam recusandae reiciendis odit est, obcaecati modi odio nemo!\nCum quidem alias ea! Quibusdam eos est ad, eum animi at eligendi atque.",
+      "rating": 4.6,
+      "price_per_night": 60,
+      "images": [
+        "apartment4.jpeg",
+        "apartment1.jpeg"
+      ],
+      "address": "Address 4",
+      "city": "Zadar",
+      "postal_code": "23000",
+      "latitude": 0,
+      "longitude": 0,
+      "available": true,
+      "availability_start_date": "2021-07-21",
+      "availability_end_date": "2021-09-01",
+      "renter_id": 0,
+      "created_at": "2021-06-23T09:15:13.431Z",
+      "updated_at": "2021-06-23T09:15:13.431Z"
+    }
+  ]
+}

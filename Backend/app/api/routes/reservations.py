@@ -25,11 +25,11 @@ async def get_all(Authorize: AuthJWT = Depends()):
     user = await authorize_guest_or_renter(email)
 
     if user.role == "renter":
-        renter = renters_repo.get_renter_for_user(user.id)
+        renter = await renters_repo.get_renter_for_user(user.id)
         model = await repo.get_all_for_renter(renter.id)
         return list(map(lambda m: ReservationOut(**m), model))
     else:
-        guest = guests_repo.get_guest_for_user(user.id)
+        guest = await guests_repo.get_guest_for_user(user.id)
         model = await repo.get_all_for_guest(guest.id)
         return list(map(lambda m: ReservationOut(**m), model))
 
@@ -43,11 +43,11 @@ async def get(id: int, Authorize: AuthJWT = Depends()):
     model = await repo.find_by_id(id)
 
     if user.role == "renter":
-        renter = renters_repo.get_renter_for_user(user.id)
+        renter = await renters_repo.get_renter_for_user(user.id)
         if model["renter_id"] == renter.id:
             return ReservationOut(**model)
     else:
-        guest = guests_repo.get_guest_for_user(user.id)
+        guest = await guests_repo.get_guest_for_user(user.id)
         if model["guest_id"] == guest.id:
             return ReservationOut(**model)
 
@@ -73,12 +73,12 @@ async def update(
     model = await repo.find_by_id(id)
 
     if user.role == "renter":
-        renter = renters_repo.get_renter_for_user(user.id)
+        renter = await renters_repo.get_renter_for_user(user.id)
         if model["renter_id"] == renter.id:
             reservation = await repo.update(id, model)
             return ReservationOut(**reservation)
     else:
-        guest = guests_repo.get_guest_for_user(user.id)
+        guest = await guests_repo.get_guest_for_user(user.id)
         if model["guest_id"] == guest.id:
             reservation = await repo.update(id, model)
             return ReservationOut(**reservation)
@@ -93,10 +93,10 @@ async def delete(id: int, Authorize: AuthJWT = Depends()):
     model = await repo.find_by_id(id)
 
     if user.role == "renter":
-        renter = renters_repo.get_renter_for_user(user.id)
+        renter = await renters_repo.get_renter_for_user(user.id)
         if model["renter_id"] == renter.id:
             return await repo.delete(id)
     else:
-        guest = guests_repo.get_guest_for_user(user.id)
+        guest = await guests_repo.get_guest_for_user(user.id)
         if model["guest_id"] == guest.id:
             return await repo.delete(id)
