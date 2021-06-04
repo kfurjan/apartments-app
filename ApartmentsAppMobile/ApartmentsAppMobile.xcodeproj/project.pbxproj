@@ -10,6 +10,10 @@
 		271A39A69880DCC75CB77CDE /* Pods_ApartmentsAppMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26565EFFB15B1129073ACAC8 /* Pods_ApartmentsAppMobile.framework */; };
 		9F92F447733FC999767F251B /* Pods_ApartmentsAppMobile_ApartmentsAppMobileUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A72E2671E4D072C48312164D /* Pods_ApartmentsAppMobile_ApartmentsAppMobileUITests.framework */; };
 		D7A925FF2802C60652F57C06 /* Pods_ApartmentsAppMobileTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C85586E852D58E91CD63F76 /* Pods_ApartmentsAppMobileTests.framework */; };
+		E90A324B266AAD8C00CF4577 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90A324A266AAD8C00CF4577 /* SearchBar.swift */; };
+		E90A324E266AADD200CF4577 /* SearchBarState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90A324D266AADD200CF4577 /* SearchBarState.swift */; };
+		E90A3250266AAFC300CF4577 /* ApartmentsSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90A324F266AAFC300CF4577 /* ApartmentsSearchView.swift */; };
+		E90A3252266AB12500CF4577 /* Apartment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90A3251266AB12500CF4577 /* Apartment.swift */; };
 		E91B6F79265EAF2F001A3240 /* FormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91B6F78265EAF2F001A3240 /* FormModel.swift */; };
 		E91C75AD265D3555005F0FA0 /* ShapeUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91C75AC265D3555005F0FA0 /* ShapeUtilities.swift */; };
 		E91C75AF265D3599005F0FA0 /* LoginForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91C75AE265D3599005F0FA0 /* LoginForm.swift */; };
@@ -60,6 +64,10 @@
 		AA3790522B7ADEF4180267BE /* Pods-ApartmentsApp-ApartmentsAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApartmentsApp-ApartmentsAppUITests.release.xcconfig"; path = "Target Support Files/Pods-ApartmentsApp-ApartmentsAppUITests/Pods-ApartmentsApp-ApartmentsAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D41CCC4892E625DA2FE587B8 /* Pods-ApartmentsApp-ApartmentsAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApartmentsApp-ApartmentsAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-ApartmentsApp-ApartmentsAppUITests/Pods-ApartmentsApp-ApartmentsAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D53663465637A7D613DC8293 /* Pods-ApartmentsAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApartmentsAppTests.debug.xcconfig"; path = "Target Support Files/Pods-ApartmentsAppTests/Pods-ApartmentsAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E90A324A266AAD8C00CF4577 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		E90A324D266AADD200CF4577 /* SearchBarState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarState.swift; sourceTree = "<group>"; };
+		E90A324F266AAFC300CF4577 /* ApartmentsSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApartmentsSearchView.swift; sourceTree = "<group>"; };
+		E90A3251266AB12500CF4577 /* Apartment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apartment.swift; sourceTree = "<group>"; };
 		E91B6F78265EAF2F001A3240 /* FormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormModel.swift; sourceTree = "<group>"; };
 		E91C75AC265D3555005F0FA0 /* ShapeUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeUtilities.swift; sourceTree = "<group>"; };
 		E91C75AE265D3599005F0FA0 /* LoginForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginForm.swift; sourceTree = "<group>"; };
@@ -138,6 +146,34 @@
 				78E33726D020625DE263861C /* Pods-ApartmentsAppMobileTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		E90A3248266AAD7000CF4577 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E9A58B0E265C331F00B3F91D /* LoginView.swift */,
+				E91C75AE265D3599005F0FA0 /* LoginForm.swift */,
+				E91C75B0265D360E005F0FA0 /* SignUpForm.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		E90A3249266AAD8000CF4577 /* Apartments */ = {
+			isa = PBXGroup;
+			children = (
+				E90A324A266AAD8C00CF4577 /* SearchBar.swift */,
+				E90A324F266AAFC300CF4577 /* ApartmentsSearchView.swift */,
+			);
+			path = Apartments;
+			sourceTree = "<group>";
+		};
+		E90A324C266AADC200CF4577 /* Apartments */ = {
+			isa = PBXGroup;
+			children = (
+				E90A324D266AADD200CF4577 /* SearchBarState.swift */,
+				E90A3251266AB12500CF4577 /* Apartment.swift */,
+			);
+			path = Apartments;
 			sourceTree = "<group>";
 		};
 		E91B6F77265EAF18001A3240 /* Login */ = {
@@ -225,9 +261,8 @@
 		E9A58B0B265C309700B3F91D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E9A58B0E265C331F00B3F91D /* LoginView.swift */,
-				E91C75AE265D3599005F0FA0 /* LoginForm.swift */,
-				E91C75B0265D360E005F0FA0 /* SignUpForm.swift */,
+				E90A3249266AAD8000CF4577 /* Apartments */,
+				E90A3248266AAD7000CF4577 /* Login */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -243,6 +278,7 @@
 		E9A58B0D265C30A500B3F91D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E90A324C266AADC200CF4577 /* Apartments */,
 				E91B6F77265EAF18001A3240 /* Login */,
 				E9A58B12265C336100B3F91D /* User.swift */,
 			);
@@ -470,11 +506,15 @@
 			files = (
 				E91C75AD265D3555005F0FA0 /* ShapeUtilities.swift in Sources */,
 				E938022A265E20230019E3F6 /* FormState.swift in Sources */,
+				E90A3252266AB12500CF4577 /* Apartment.swift in Sources */,
 				E9A58B11265C335400B3F91D /* LoginViewModel.swift in Sources */,
 				E91C75B3265D3CDC005F0FA0 /* StringConstants.swift in Sources */,
 				E91B6F79265EAF2F001A3240 /* FormModel.swift in Sources */,
+				E90A324B266AAD8C00CF4577 /* SearchBar.swift in Sources */,
 				E9A58B0F265C331F00B3F91D /* LoginView.swift in Sources */,
 				E9A58AE3265C301400B3F91D /* ContentView.swift in Sources */,
+				E90A324E266AADD200CF4577 /* SearchBarState.swift in Sources */,
+				E90A3250266AAFC300CF4577 /* ApartmentsSearchView.swift in Sources */,
 				E91C75AF265D3599005F0FA0 /* LoginForm.swift in Sources */,
 				E91C75B1265D360E005F0FA0 /* SignUpForm.swift in Sources */,
 				E9A58B13265C336100B3F91D /* User.swift in Sources */,

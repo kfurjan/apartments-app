@@ -19,7 +19,12 @@ let signUp = "Sign up"
 let emailAddressHint = "Email Address"
 let passwordHint = "Password"
 let forgotPassword = "Forget Password?"
+let cancel = "Cancel"
+let searchPlaceholer = "Search ..."
+let apartments = "Apartments"
 
 // System icons
 let filledEnvelope = "envelope.fill"
 let filledSlashedEye = "eye.slash.fill"
+let magnifyingGlass = "magnifyingglass"
+let multiplyCircleFill = "multiply.circle.fill"
