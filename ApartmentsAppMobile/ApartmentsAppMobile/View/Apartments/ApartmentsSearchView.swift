@@ -12,9 +12,17 @@ struct ApartmentsSearchView: View {
         NavigationView {
             VStack {
                 SearchBar()
+                    .padding()
+
+                ScrollView {
+                    ForEach(apartmentsList, id: \.id) { apartment in
+                        ApartmentPreview(apartment: apartment)
+                    }
+                }
             }
             .navigationTitle(apartments)
         }
+        .background(Color(primaryColor))
     }
 }
 
