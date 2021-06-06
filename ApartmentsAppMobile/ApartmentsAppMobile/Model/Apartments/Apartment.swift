@@ -21,4 +21,5 @@ struct Apartment: Identifiable {
     let latitude: Double
     let longitude: Double
     let images: [String]
+    let rating: Int?
 }

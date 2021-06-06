@@ -34,7 +34,7 @@ struct ApartmentPreview: View {
                     .padding(.horizontal, 2)
 
                 HStack(spacing: 10) {
-                    Image(systemName: locationIcon)
+                    Image(systemName: locationIconFill)
                         .foregroundColor(Color(secondaryColor))
                     Text("\(apartment.city), \(apartment.address)")
                         .font(.headline)
@@ -42,7 +42,7 @@ struct ApartmentPreview: View {
                 .padding(.vertical, 2)
 
                 HStack(spacing: 10) {
-                    Image(systemName: dollarSignCircle)
+                    Image(systemName: euroSignCircleFill)
                         .foregroundColor(Color(secondaryColor))
                     Text(apartment.pricePerNight.description)
                         .font(.headline)

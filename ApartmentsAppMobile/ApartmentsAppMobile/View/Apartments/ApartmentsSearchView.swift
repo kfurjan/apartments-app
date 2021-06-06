@@ -21,8 +21,8 @@ struct ApartmentsSearchView: View {
                 }
             }
             .navigationTitle(apartments)
+            .background(Color(primaryColor).edgesIgnoringSafeArea(.all))
         }
-        .background(Color(primaryColor))
     }
 }
 

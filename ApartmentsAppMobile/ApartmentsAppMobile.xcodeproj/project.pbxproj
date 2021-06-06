@@ -15,7 +15,7 @@
 		E90A3250266AAFC300CF4577 /* ApartmentsSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90A324F266AAFC300CF4577 /* ApartmentsSearchView.swift */; };
 		E90A3252266AB12500CF4577 /* Apartment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90A3251266AB12500CF4577 /* Apartment.swift */; };
 		E90A3254266AB31900CF4577 /* ApartmentPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90A3253266AB31900CF4577 /* ApartmentPreview.swift */; };
-		E90A3256266AB32500CF4577 /* ApartmentDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90A3255266AB32500CF4577 /* ApartmentDetail.swift */; };
+		E90A3256266AB32500CF4577 /* ApartmentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90A3255266AB32500CF4577 /* ApartmentDetailView.swift */; };
 		E90A3258266B894B00CF4577 /* PreviewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90A3257266B894B00CF4577 /* PreviewHelpers.swift */; };
 		E90A325A266B8AFF00CF4577 /* DateUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90A3259266B8AFF00CF4577 /* DateUtilities.swift */; };
 		E91B6F79265EAF2F001A3240 /* FormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91B6F78265EAF2F001A3240 /* FormModel.swift */; };
@@ -73,7 +73,7 @@
 		E90A324F266AAFC300CF4577 /* ApartmentsSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApartmentsSearchView.swift; sourceTree = "<group>"; };
 		E90A3251266AB12500CF4577 /* Apartment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apartment.swift; sourceTree = "<group>"; };
 		E90A3253266AB31900CF4577 /* ApartmentPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApartmentPreview.swift; sourceTree = "<group>"; };
-		E90A3255266AB32500CF4577 /* ApartmentDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApartmentDetail.swift; sourceTree = "<group>"; };
+		E90A3255266AB32500CF4577 /* ApartmentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApartmentDetailView.swift; sourceTree = "<group>"; };
 		E90A3257266B894B00CF4577 /* PreviewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewHelpers.swift; sourceTree = "<group>"; };
 		E90A3259266B8AFF00CF4577 /* DateUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtilities.swift; sourceTree = "<group>"; };
 		E91B6F78265EAF2F001A3240 /* FormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormModel.swift; sourceTree = "<group>"; };
@@ -172,7 +172,7 @@
 				E90A324A266AAD8C00CF4577 /* SearchBar.swift */,
 				E90A324F266AAFC300CF4577 /* ApartmentsSearchView.swift */,
 				E90A3253266AB31900CF4577 /* ApartmentPreview.swift */,
-				E90A3255266AB32500CF4577 /* ApartmentDetail.swift */,
+				E90A3255266AB32500CF4577 /* ApartmentDetailView.swift */,
 			);
 			path = Apartments;
 			sourceTree = "<group>";
@@ -560,7 +560,7 @@
 				E91B6F79265EAF2F001A3240 /* FormModel.swift in Sources */,
 				E90A3258266B894B00CF4577 /* PreviewHelpers.swift in Sources */,
 				E90A324B266AAD8C00CF4577 /* SearchBar.swift in Sources */,
-				E90A3256266AB32500CF4577 /* ApartmentDetail.swift in Sources */,
+				E90A3256266AB32500CF4577 /* ApartmentDetailView.swift in Sources */,
 				E9A58B0F265C331F00B3F91D /* LoginView.swift in Sources */,
 				E9A58AE3265C301400B3F91D /* ContentView.swift in Sources */,
 				E90A324E266AADD200CF4577 /* SearchBarState.swift in Sources */,
