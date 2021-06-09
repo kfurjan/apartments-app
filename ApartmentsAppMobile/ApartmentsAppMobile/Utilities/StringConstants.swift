@@ -24,6 +24,7 @@ let searchPlaceholer = "Search ..."
 let apartments = "Apartments"
 let available = "Available"
 let unavailable = "Unavailable"
+let filters = "Filters"
 
 // System icons
 let filledEnvelope = "envelope.fill"
@@ -36,3 +37,5 @@ let checkmark = "checkmark"
 let xmark = "xmark"
 let starIcon = "star"
 let startIconFill = "star.fill"
+let filterIcon = "line.horizontal.3.decrease.circle"
+let searchIcon = "arrow.up.arrow.down"

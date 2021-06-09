@@ -35,7 +35,7 @@ let apartmentsList = [
         address: "Dubrovnička 3",
         postalCode: "10000",
         description: String(repeating: loremIpsum, count: 6),
-        pricePerNight: 179.99,
+        pricePerNight: 119.99,
         available: false,
         availableFrom: Date.parse("2021-06-15")!,
         availableTo: Date.parse("2021-06-30")!,
@@ -46,7 +46,7 @@ let apartmentsList = [
             "https://images.wsj.net/im-193186?width=620&size=1.5",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO2z1Q69L_-iwb4zDpSnhuIgVS3PDUtwOP3w&usqp=CAU"
         ],
-        rating: nil
+        rating: 5
     ),
     Apartment(
         tile: "Apartman s pogledom",
@@ -65,6 +65,6 @@ let apartmentsList = [
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO2z1Q69L_-iwb4zDpSnhuIgVS3PDUtwOP3w&usqp=CAU",
             "https://images.wsj.net/im-193186?width=620&size=1.5"
         ],
-        rating: 5
+        rating: nil
     )
 ]

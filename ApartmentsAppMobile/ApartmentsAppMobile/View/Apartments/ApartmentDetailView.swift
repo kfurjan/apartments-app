@@ -47,6 +47,7 @@ struct ApartmentDetailView: View {
                 Text(apartment.tile)
                     .font(.title)
                     .fontWeight(.bold)
+                    .padding(.horizontal, 5)
                 Spacer()
             }
 
@@ -106,7 +107,7 @@ struct ApartmentDetailView: View {
 
 struct ApartmentDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ApartmentDetailView(apartment: apartmentsList[2])
+        ApartmentDetailView(apartment: apartmentsList[0])
             .preferredColorScheme(.dark)
     }
 }
