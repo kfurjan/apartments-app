@@ -11,9 +11,9 @@ Mobile application (iOS) for apartmens-app. Project is being developed with Swif
 
 ## Links to documentation
 
-- Swift programming language - [Swift](https://swift.org/documentation/)
+- SwiftLint - [SwiftLint](https://realm.github.io/SwiftLint/)
 - SwiftUI framework - [SwiftUI](https://developer.apple.com/documentation/swiftui)
-- SwiftLint - [SwiftUI](https://realm.github.io/SwiftLint/)
+- Swift programming language - [Swift](https://swift.org/documentation/)
 - CocoaPods package manager - [CocoaPods](https://cocoapods.org)
 
 ## First time setup

@@ -3,13 +3,21 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		271A39A69880DCC75CB77CDE /* Pods_ApartmentsAppMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26565EFFB15B1129073ACAC8 /* Pods_ApartmentsAppMobile.framework */; };
 		9F92F447733FC999767F251B /* Pods_ApartmentsAppMobile_ApartmentsAppMobileUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A72E2671E4D072C48312164D /* Pods_ApartmentsAppMobile_ApartmentsAppMobileUITests.framework */; };
 		D7A925FF2802C60652F57C06 /* Pods_ApartmentsAppMobileTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C85586E852D58E91CD63F76 /* Pods_ApartmentsAppMobileTests.framework */; };
+		E90A324B266AAD8C00CF4577 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90A324A266AAD8C00CF4577 /* SearchBar.swift */; };
+		E90A324E266AADD200CF4577 /* SearchBarState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90A324D266AADD200CF4577 /* SearchBarState.swift */; };
+		E90A3250266AAFC300CF4577 /* ApartmentsSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90A324F266AAFC300CF4577 /* ApartmentsSearchView.swift */; };
+		E90A3252266AB12500CF4577 /* Apartment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90A3251266AB12500CF4577 /* Apartment.swift */; };
+		E90A3254266AB31900CF4577 /* ApartmentPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90A3253266AB31900CF4577 /* ApartmentPreview.swift */; };
+		E90A3256266AB32500CF4577 /* ApartmentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90A3255266AB32500CF4577 /* ApartmentDetailView.swift */; };
+		E90A3258266B894B00CF4577 /* PreviewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90A3257266B894B00CF4577 /* PreviewHelpers.swift */; };
+		E90A325A266B8AFF00CF4577 /* DateUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90A3259266B8AFF00CF4577 /* DateUtilities.swift */; };
 		E91B6F79265EAF2F001A3240 /* FormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91B6F78265EAF2F001A3240 /* FormModel.swift */; };
 		E91C75AD265D3555005F0FA0 /* ShapeUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91C75AC265D3555005F0FA0 /* ShapeUtilities.swift */; };
 		E91C75AF265D3599005F0FA0 /* LoginForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91C75AE265D3599005F0FA0 /* LoginForm.swift */; };
@@ -60,6 +68,14 @@
 		AA3790522B7ADEF4180267BE /* Pods-ApartmentsApp-ApartmentsAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApartmentsApp-ApartmentsAppUITests.release.xcconfig"; path = "Target Support Files/Pods-ApartmentsApp-ApartmentsAppUITests/Pods-ApartmentsApp-ApartmentsAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D41CCC4892E625DA2FE587B8 /* Pods-ApartmentsApp-ApartmentsAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApartmentsApp-ApartmentsAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-ApartmentsApp-ApartmentsAppUITests/Pods-ApartmentsApp-ApartmentsAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D53663465637A7D613DC8293 /* Pods-ApartmentsAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApartmentsAppTests.debug.xcconfig"; path = "Target Support Files/Pods-ApartmentsAppTests/Pods-ApartmentsAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E90A324A266AAD8C00CF4577 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		E90A324D266AADD200CF4577 /* SearchBarState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarState.swift; sourceTree = "<group>"; };
+		E90A324F266AAFC300CF4577 /* ApartmentsSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApartmentsSearchView.swift; sourceTree = "<group>"; };
+		E90A3251266AB12500CF4577 /* Apartment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apartment.swift; sourceTree = "<group>"; };
+		E90A3253266AB31900CF4577 /* ApartmentPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApartmentPreview.swift; sourceTree = "<group>"; };
+		E90A3255266AB32500CF4577 /* ApartmentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApartmentDetailView.swift; sourceTree = "<group>"; };
+		E90A3257266B894B00CF4577 /* PreviewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewHelpers.swift; sourceTree = "<group>"; };
+		E90A3259266B8AFF00CF4577 /* DateUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtilities.swift; sourceTree = "<group>"; };
 		E91B6F78265EAF2F001A3240 /* FormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormModel.swift; sourceTree = "<group>"; };
 		E91C75AC265D3555005F0FA0 /* ShapeUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeUtilities.swift; sourceTree = "<group>"; };
 		E91C75AE265D3599005F0FA0 /* LoginForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginForm.swift; sourceTree = "<group>"; };
@@ -140,6 +156,36 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		E90A3248266AAD7000CF4577 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E9A58B0E265C331F00B3F91D /* LoginView.swift */,
+				E91C75AE265D3599005F0FA0 /* LoginForm.swift */,
+				E91C75B0265D360E005F0FA0 /* SignUpForm.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		E90A3249266AAD8000CF4577 /* Apartments */ = {
+			isa = PBXGroup;
+			children = (
+				E90A324A266AAD8C00CF4577 /* SearchBar.swift */,
+				E90A324F266AAFC300CF4577 /* ApartmentsSearchView.swift */,
+				E90A3253266AB31900CF4577 /* ApartmentPreview.swift */,
+				E90A3255266AB32500CF4577 /* ApartmentDetailView.swift */,
+			);
+			path = Apartments;
+			sourceTree = "<group>";
+		};
+		E90A324C266AADC200CF4577 /* Apartments */ = {
+			isa = PBXGroup;
+			children = (
+				E90A324D266AADD200CF4577 /* SearchBarState.swift */,
+				E90A3251266AB12500CF4577 /* Apartment.swift */,
+			);
+			path = Apartments;
+			sourceTree = "<group>";
+		};
 		E91B6F77265EAF18001A3240 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +200,8 @@
 			children = (
 				E91C75AC265D3555005F0FA0 /* ShapeUtilities.swift */,
 				E91C75B2265D3CDC005F0FA0 /* StringConstants.swift */,
+				E90A3257266B894B00CF4577 /* PreviewHelpers.swift */,
+				E90A3259266B8AFF00CF4577 /* DateUtilities.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -225,9 +273,8 @@
 		E9A58B0B265C309700B3F91D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E9A58B0E265C331F00B3F91D /* LoginView.swift */,
-				E91C75AE265D3599005F0FA0 /* LoginForm.swift */,
-				E91C75B0265D360E005F0FA0 /* SignUpForm.swift */,
+				E90A3249266AAD8000CF4577 /* Apartments */,
+				E90A3248266AAD7000CF4577 /* Login */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -243,6 +290,7 @@
 		E9A58B0D265C30A500B3F91D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E90A324C266AADC200CF4577 /* Apartments */,
 				E91B6F77265EAF18001A3240 /* Login */,
 				E9A58B12265C336100B3F91D /* User.swift */,
 			);
@@ -260,6 +308,7 @@
 				E9A58AD9265C301400B3F91D /* Sources */,
 				E9A58ADA265C301400B3F91D /* Frameworks */,
 				E9A58ADB265C301400B3F91D /* Resources */,
+				586331F7BCC491CD7997E37A /* [CP] Embed Pods Frameworks */,
 				E96D6990265C36AB00EF09E6 /* ShellScript */,
 			);
 			buildRules = (
@@ -298,6 +347,7 @@
 				E9A58AF5265C301500B3F91D /* Sources */,
 				E9A58AF6265C301500B3F91D /* Frameworks */,
 				E9A58AF7265C301500B3F91D /* Resources */,
+				95CA16CC223B1D24903F7DC8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -422,6 +472,40 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		586331F7BCC491CD7997E37A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ApartmentsAppMobile/Pods-ApartmentsAppMobile-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ApartmentsAppMobile/Pods-ApartmentsAppMobile-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ApartmentsAppMobile/Pods-ApartmentsAppMobile-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		95CA16CC223B1D24903F7DC8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ApartmentsAppMobile-ApartmentsAppMobileUITests/Pods-ApartmentsAppMobile-ApartmentsAppMobileUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ApartmentsAppMobile-ApartmentsAppMobileUITests/Pods-ApartmentsAppMobile-ApartmentsAppMobileUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ApartmentsAppMobile-ApartmentsAppMobileUITests/Pods-ApartmentsAppMobile-ApartmentsAppMobileUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D6346180DC07F77A24B5653F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -470,15 +554,23 @@
 			files = (
 				E91C75AD265D3555005F0FA0 /* ShapeUtilities.swift in Sources */,
 				E938022A265E20230019E3F6 /* FormState.swift in Sources */,
+				E90A3252266AB12500CF4577 /* Apartment.swift in Sources */,
 				E9A58B11265C335400B3F91D /* LoginViewModel.swift in Sources */,
 				E91C75B3265D3CDC005F0FA0 /* StringConstants.swift in Sources */,
 				E91B6F79265EAF2F001A3240 /* FormModel.swift in Sources */,
+				E90A3258266B894B00CF4577 /* PreviewHelpers.swift in Sources */,
+				E90A324B266AAD8C00CF4577 /* SearchBar.swift in Sources */,
+				E90A3256266AB32500CF4577 /* ApartmentDetailView.swift in Sources */,
 				E9A58B0F265C331F00B3F91D /* LoginView.swift in Sources */,
 				E9A58AE3265C301400B3F91D /* ContentView.swift in Sources */,
+				E90A324E266AADD200CF4577 /* SearchBarState.swift in Sources */,
+				E90A3250266AAFC300CF4577 /* ApartmentsSearchView.swift in Sources */,
 				E91C75AF265D3599005F0FA0 /* LoginForm.swift in Sources */,
 				E91C75B1265D360E005F0FA0 /* SignUpForm.swift in Sources */,
 				E9A58B13265C336100B3F91D /* User.swift in Sources */,
 				E9A58AE1265C301400B3F91D /* ApartmentsAppApp.swift in Sources */,
+				E90A3254266AB31900CF4577 /* ApartmentPreview.swift in Sources */,
+				E90A325A266B8AFF00CF4577 /* DateUtilities.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
