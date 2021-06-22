@@ -7,7 +7,7 @@
 
 import Combine
 
-class LoginViewModel: ObservableObject {
+final class LoginViewModel: ObservableObject {
 
     @Published var formModel: FormModel
 

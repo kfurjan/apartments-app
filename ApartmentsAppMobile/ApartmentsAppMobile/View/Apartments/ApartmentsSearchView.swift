@@ -8,45 +8,52 @@
 import SwiftUI
 
 struct ApartmentsSearchView: View {
-    @State private var sortDescending = false
-    @State private var isSheetPresented = false
-    @State private var selectedFilter = "City"
-    let filterOptions = ["City", "Price", "Rating", "Available"]
+    @StateObject private var viewModel = ApartmentsViewModel()
 
     var body: some View {
         NavigationView {
             VStack {
-                SearchBar()
+                SearchBar(state: $viewModel.searchBarState)
                     .padding()
+                    .onChange(of: viewModel.searchBarState.text) { _ in
+                        viewModel.filterApartments()
+                    }
 
                 HStack {
                     Spacer()
                     Button(action: {
-                        self.sortDescending.toggle()
+                        viewModel.apartmentsViewState.sortDescending.toggle()
+
+                        viewModel.sortApartmentsAscending(
+                            viewModel.apartmentsViewState.sortDescending
+                        )
                     }, label: {
-                        Image(systemName: searchIcon)
+                        Image(systemName: sortIcon)
                             .font(.headline)
                             .foregroundColor(Color(secondaryColor))
                     })
                 }.padding()
 
                 ScrollView {
-                    ForEach(apartmentsList, id: \.id) { apartment in
-                        ApartmentPreview(apartment: apartment)
+                    ForEach(viewModel.apartmentsViewState.apartments, id: \.id) { apartment in
+                        NavigationLink(destination: ApartmentDetailView(apartment: apartment)) {
+                            ApartmentPreview(apartment: apartment)
+                        }
+                        .buttonStyle(PlainButtonStyle())
                     }
                 }
             }
             .navigationTitle(apartments)
             .navigationBarItems(trailing:
                 Button(action: {
-                    self.isSheetPresented.toggle()
+                    viewModel.apartmentsViewState.isSheetPresented.toggle()
                 }, label: {
                     Image(systemName: filterIcon)
                         .font(.title)
                         .foregroundColor(Color(secondaryColor))
                 })
             )
-            .sheet(isPresented: $isSheetPresented) {
+            .sheet(isPresented: $viewModel.apartmentsViewState.isSheetPresented) {
                 VStack {
                     HStack {
                         Text(filters)
@@ -55,8 +62,8 @@ struct ApartmentsSearchView: View {
                         Spacer()
                     }.padding()
 
-                    Picker(filters, selection: $selectedFilter) {
-                        ForEach(filterOptions, id: \.self) { filter in
+                    Picker(filters, selection: $viewModel.apartmentsViewState.selectedFilter) {
+                        ForEach(viewModel.apartmentsViewState.filterOptions, id: \.self) { filter in
                             Text(filter)
                         }
                     }
