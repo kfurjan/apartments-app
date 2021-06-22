@@ -9,6 +9,7 @@ import Foundation
 
 let loremIpsum = "Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. "
 
+// swiftlint:disable line_length
 let apartmentsList = [
     Apartment(
         tile: "Dvosoban apartman",

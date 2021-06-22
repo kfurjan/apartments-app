@@ -33,6 +33,8 @@
 		E9A58B0F265C331F00B3F91D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A58B0E265C331F00B3F91D /* LoginView.swift */; };
 		E9A58B11265C335400B3F91D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A58B10265C335400B3F91D /* LoginViewModel.swift */; };
 		E9A58B13265C336100B3F91D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A58B12265C336100B3F91D /* User.swift */; };
+		E9ED243B2681DF8700A5A0C1 /* ApartmentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ED243A2681DF8700A5A0C1 /* ApartmentsViewModel.swift */; };
+		E9ED243D2682211E00A5A0C1 /* ApartmentViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ED243C2682211E00A5A0C1 /* ApartmentViewState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +99,8 @@
 		E9A58B0E265C331F00B3F91D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E9A58B10265C335400B3F91D /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		E9A58B12265C336100B3F91D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E9ED243A2681DF8700A5A0C1 /* ApartmentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApartmentsViewModel.swift; sourceTree = "<group>"; };
+		E9ED243C2682211E00A5A0C1 /* ApartmentViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApartmentViewState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +186,7 @@
 			children = (
 				E90A324D266AADD200CF4577 /* SearchBarState.swift */,
 				E90A3251266AB12500CF4577 /* Apartment.swift */,
+				E9ED243C2682211E00A5A0C1 /* ApartmentViewState.swift */,
 			);
 			path = Apartments;
 			sourceTree = "<group>";
@@ -283,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				E9A58B10265C335400B3F91D /* LoginViewModel.swift */,
+				E9ED243A2681DF8700A5A0C1 /* ApartmentsViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -555,12 +561,14 @@
 				E91C75AD265D3555005F0FA0 /* ShapeUtilities.swift in Sources */,
 				E938022A265E20230019E3F6 /* FormState.swift in Sources */,
 				E90A3252266AB12500CF4577 /* Apartment.swift in Sources */,
+				E9ED243B2681DF8700A5A0C1 /* ApartmentsViewModel.swift in Sources */,
 				E9A58B11265C335400B3F91D /* LoginViewModel.swift in Sources */,
 				E91C75B3265D3CDC005F0FA0 /* StringConstants.swift in Sources */,
 				E91B6F79265EAF2F001A3240 /* FormModel.swift in Sources */,
 				E90A3258266B894B00CF4577 /* PreviewHelpers.swift in Sources */,
 				E90A324B266AAD8C00CF4577 /* SearchBar.swift in Sources */,
 				E90A3256266AB32500CF4577 /* ApartmentDetailView.swift in Sources */,
+				E9ED243D2682211E00A5A0C1 /* ApartmentViewState.swift in Sources */,
 				E9A58B0F265C331F00B3F91D /* LoginView.swift in Sources */,
 				E9A58AE3265C301400B3F91D /* ContentView.swift in Sources */,
 				E90A324E266AADD200CF4577 /* SearchBarState.swift in Sources */,

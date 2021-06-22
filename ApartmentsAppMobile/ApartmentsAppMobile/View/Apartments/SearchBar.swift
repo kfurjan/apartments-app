@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SearchBar: View {
-    @State private var state = SearchBarState()
+    @Binding var state: SearchBarState
 
     var body: some View {
         HStack {
@@ -65,7 +65,7 @@ struct SearchBar: View {
 
 struct Searchbar_Previews: PreviewProvider {
     static var previews: some View {
-        SearchBar()
+        SearchBar(state: .constant(SearchBarState()))
             .previewLayout(.sizeThatFits)
             .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
     }
