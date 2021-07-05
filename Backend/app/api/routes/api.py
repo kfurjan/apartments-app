@@ -11,6 +11,7 @@ from app.api.routes import (
     receipts,
     reservations,
     services,
+    apartment_details,
 )
 from fastapi import APIRouter
 
@@ -20,7 +21,7 @@ router.include_router(
     authentication.router, tags=["authentication"], prefix="/authentication"
 )
 router.include_router(
-    guests.router, tags=["apartment_details"], prefix="/apartment_details"
+    apartment_details.router, tags=["apartment_details"], prefix="/apartment_details"
 )
 router.include_router(users.router, tags=["users"], prefix="/user")
 router.include_router(guests.router, tags=["guests"], prefix="/guests")
