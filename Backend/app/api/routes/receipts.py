@@ -40,11 +40,11 @@ async def get(id: int, Authorize: AuthJWT = Depends()):
 
     if user.role == "renter":
         renter = renters_repo.get_renter_for_user(user.id)
-        if model.renter_id == renter.id:
+        if model["renter_id"] == renter.id:
             return ReceiptOut(**model)
     else:
         guest = guests_repo.get_guest_for_user(user.id)
-        if model.guest_id == guest.id:
+        if model["guest_id"] == guest.id:
             return ReceiptOut(**model)
 
 
@@ -56,7 +56,7 @@ async def create(receipt: ReceiptInCreate, Authorize: AuthJWT = Depends()):
 
     renter = renters_repo.get_renter_for_user(user.id)
 
-    receipt.renter_id = renter.id
+    receipt["renter_id"] = renter.id
     model = await repo.create(receipt)
     return ReceiptOut(**model)
 
@@ -71,11 +71,11 @@ async def update(id, receipt: ReceiptInUpdate, Authorize: AuthJWT = Depends()):
 
     if user.role == "renter":
         renter = renters_repo.get_renter_for_user(user.id)
-        if model.renter_id == renter.id:
+        if model["renter_id"] == renter.id:
             receipt = await repo.update(id, model)
             return ReceiptOut(**receipt)
     else:
         guest = guests_repo.get_guest_for_user(user.id)
-        if model.guest_id == guest.id:
+        if model["guest_id"] == guest.id:
             receipt = await repo.update(id, model)
             return ReceiptOut(**receipt)

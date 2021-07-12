@@ -67,5 +67,5 @@ async def delete(id: int, Authorize: AuthJWT = Depends()):
     renter = renters_repo.get_renter_for_user(user.id)
 
     model = await repo.find_by_id(id)
-    if model and renter.id == model.renter_id:
+    if model and renter.id == model["renter_id"]:
         return await repo.delete(id)

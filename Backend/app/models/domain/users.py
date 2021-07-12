@@ -13,8 +13,18 @@ class UserInLogin(BaseModel):
 class UserOut(BaseModel):
     id: int
     email: str
-    password_digest: str
     role: str
+    password_digest: Optional[str]
+    renter_id: Optional[int]
+    guest_id: Optional[int]
+
+
+class UserOutDetails(BaseModel):
+    id: int
+    email: str
+    role: str
+    renter_id: Optional[int]
+    guest_id: Optional[int]
 
 
 class UserInCreate(BaseModel):

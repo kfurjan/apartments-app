@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import date, datetime
 from typing import Optional
 from pydantic import BaseModel
 from app.core.config import metadata, sqlalchemy
@@ -12,7 +12,7 @@ class GuestOut(BaseModel):
     first_name: str
     last_name: str
     oib: str
-    date_of_birth: datetime
+    date_of_birth: date
     created_at: datetime
     updated_at: datetime
 
@@ -23,7 +23,7 @@ class GuestInCreate(BaseModel):
     first_name: str
     last_name: str
     oib: str
-    date_of_birth: datetime
+    date_of_birth: date
 
 
 class GuestInUpdate(BaseModel):
@@ -32,7 +32,7 @@ class GuestInUpdate(BaseModel):
     first_name: Optional[str]
     last_name: Optional[str]
     oib: Optional[str]
-    date_of_birth: Optional[datetime]
+    date_of_birth: Optional[date]
 
 
 guests = sqlalchemy.Table(

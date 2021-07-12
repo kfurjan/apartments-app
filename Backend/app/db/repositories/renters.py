@@ -1,5 +1,5 @@
 from app.db.repositories.base import BaseRepository
-from app.models.domain.renters import renters
+from app.models.domain.renters import RenterOut, renters
 
 
 class RentersRepository(BaseRepository):
@@ -11,4 +11,4 @@ class RentersRepository(BaseRepository):
         model = await self.database.fetch_one(query)
 
         if model:
-            return model
+            return RenterOut(**model)

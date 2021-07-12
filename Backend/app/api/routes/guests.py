@@ -23,7 +23,7 @@ async def get(id: int, Authorize: AuthJWT = Depends()):
     user = await authorize_guest(email)
 
     model = await repo.find_by_id(id)
-    if model and model.user_id == user.id:
+    if model and model['user_id'] == user.id:
         return GuestOut(**model)
 
 
@@ -58,7 +58,7 @@ async def delete(id: int, Authorize: AuthJWT = Depends()):
     user = await authorize_guest(email)
 
     model = await repo.find_by_id(id)
-    if model and model.user_id == user.id:
+    if model and model['user_id'] == user.id:
         return await repo.delete(id)
 
 

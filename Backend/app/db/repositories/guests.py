@@ -1,5 +1,5 @@
 from app.db.repositories.base import BaseRepository
-from app.models.domain.guests import guests
+from app.models.domain.guests import GuestOut, guests
 
 
 class GuestsRepository(BaseRepository):
@@ -11,4 +11,4 @@ class GuestsRepository(BaseRepository):
         model = await self.database.fetch_one(query)
 
         if model:
-            return model
+            return GuestOut(**model)

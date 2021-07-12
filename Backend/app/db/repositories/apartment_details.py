@@ -6,6 +6,6 @@ class ApartmentDetailsRepository(BaseRepository):
     def table(self):
         return apartment_details
 
-    async def get_all_for_apartment(self, apartment_id):
+    async def get_for_apartment(self, apartment_id):
         query = self.table().select().where(self.table().c.apartment_id == apartment_id)
-        return await self.database.fetch_all(query)
+        return await self.database.fetch_one(query)

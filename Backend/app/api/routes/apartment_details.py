@@ -2,7 +2,6 @@ from app.db.repositories.renters import RentersRepository
 from app.db.repositories.apartments import ApartmentsRepository
 from app.core.config import db
 from app.db.repositories.apartment_details import ApartmentDetailsRepository
-from typing import List
 from app.models.domain.apartment_details import (
     ApartmentDetailOut,
     ApartmentDetailInCreate,
@@ -18,15 +17,9 @@ apartment_repo = ApartmentsRepository(db)
 renters_repo = RentersRepository(db)
 
 
-@router.get("/", response_model=List[ApartmentDetailOut])
-async def get_all(apartment_id: int):
-    models = await repo.get_all_for_apartment(apartment_id)
-    return list(map(lambda m: ApartmentDetailOut(**m), models))
-
-
-@router.get("/{id}", response_model=ApartmentDetailOut)
-async def get(id: int):
-    model = await repo.find_by_id(id)
+@router.get("/", response_model=ApartmentDetailOut)
+async def get(apartment_id: int):
+    model = await repo.get_for_apartment(apartment_id)
     return ApartmentDetailOut(**model)
 
 

@@ -44,11 +44,11 @@ async def get(id: int, Authorize: AuthJWT = Depends()):
 
     if user.role == "renter":
         renter = renters_repo.get_renter_for_user(user.id)
-        if model.renter_id == renter.id:
+        if model["renter_id"] == renter.id:
             return ReservationOut(**model)
     else:
         guest = guests_repo.get_guest_for_user(user.id)
-        if model.guest_id == guest.id:
+        if model["guest_id"] == guest.id:
             return ReservationOut(**model)
 
 
@@ -72,12 +72,12 @@ async def update(id, reservation: ReservationInUpdate, Authorize: AuthJWT = Depe
 
     if user.role == "renter":
         renter = renters_repo.get_renter_for_user(user.id)
-        if model.renter_id == renter.id:
+        if model["renter_id"] == renter.id:
             reservation = await repo.update(id, model)
             return ReservationOut(**reservation)
     else:
         guest = guests_repo.get_guest_for_user(user.id)
-        if model.guest_id == guest.id:
+        if model["guest_id"] == guest.id:
             reservation = await repo.update(id, model)
             return ReservationOut(**reservation)
 
@@ -92,9 +92,9 @@ async def delete(id: int, Authorize: AuthJWT = Depends()):
 
     if user.role == "renter":
         renter = renters_repo.get_renter_for_user(user.id)
-        if model.renter_id == renter.id:
+        if model["renter_id"] == renter.id:
             return await repo.delete(id)
     else:
         guest = guests_repo.get_guest_for_user(user.id)
-        if model.guest_id == guest.id:
+        if model["guest_id"] == guest.id:
             return await repo.delete(id)
