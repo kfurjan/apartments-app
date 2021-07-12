@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct SignUpForm: View {
+
     @EnvironmentObject private var model: LoginViewModel
+    @EnvironmentObject private var appViewModel: AppViewModel
 
     private var foregroundColor: Color {
         model.getFormState() == .signUpForm ? .white : .gray
@@ -67,12 +69,18 @@ struct SignUpForm: View {
                         Image(systemName: filledSlashedEye)
                         .foregroundColor(Color(secondaryColor))
 
-                        SecureField(passwordHint, text: $model.formModel.repeatPassword)
+                        SecureField(repeatPasswordHint, text: $model.formModel.repeatedPassword)
                     }
                     Divider().background(Color.white.opacity(0.5))
                 }
                 .padding(.horizontal)
                 .padding(.top, 30)
+
+                LoginToggleGroup(isGuest: $model.formModel.isGuest, isRenter: $model.formModel.isRenter)
+
+                if model.didErrorHappen {
+                    ErrorDescriptionView(errorMessage: model.errorMessage)
+                }
             }
             .padding()
             .padding(.bottom, 65)
@@ -87,7 +95,7 @@ struct SignUpForm: View {
             .padding(.horizontal, 20)
 
             Button(action: {
-
+                model.registerUser(formModel: model.formModel)
             }) {
                 Text(signUp.uppercased())
                     .foregroundColor(.white)
@@ -102,7 +110,10 @@ struct SignUpForm: View {
             .opacity(buttonOpacity)
         }
         .onChange(of: model.formModel.formState, perform: { _ in
-            model.cleanUp()
+            model.cleanView()
+        })
+        .onChange(of: model.formModel.loginSuccessful, perform: { _ in
+            appViewModel.fetchData()
         })
     }
 }

@@ -24,6 +24,8 @@
 		E91C75B1265D360E005F0FA0 /* SignUpForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91C75B0265D360E005F0FA0 /* SignUpForm.swift */; };
 		E91C75B3265D3CDC005F0FA0 /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91C75B2265D3CDC005F0FA0 /* StringConstants.swift */; };
 		E938022A265E20230019E3F6 /* FormState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9380229265E20230019E3F6 /* FormState.swift */; };
+		E970D518269B3EE40013D354 /* UserRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = E970D517269B3EE40013D354 /* UserRole.swift */; };
+		E970D51A269B49090013D354 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E970D519269B49090013D354 /* AppViewModel.swift */; };
 		E9A58AE1265C301400B3F91D /* ApartmentsAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A58AE0265C301400B3F91D /* ApartmentsAppApp.swift */; };
 		E9A58AE3265C301400B3F91D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A58AE2265C301400B3F91D /* ContentView.swift */; };
 		E9A58AE5265C301500B3F91D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9A58AE4265C301500B3F91D /* Assets.xcassets */; };
@@ -33,6 +35,8 @@
 		E9A58B0F265C331F00B3F91D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A58B0E265C331F00B3F91D /* LoginView.swift */; };
 		E9A58B11265C335400B3F91D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A58B10265C335400B3F91D /* LoginViewModel.swift */; };
 		E9A58B13265C336100B3F91D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A58B12265C336100B3F91D /* User.swift */; };
+		E9AC6BFD269C99CB000D2146 /* ViewUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AC6BFC269C99CB000D2146 /* ViewUtilities.swift */; };
+		E9AC6BFF269CA629000D2146 /* LoginHelperViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AC6BFE269CA629000D2146 /* LoginHelperViews.swift */; };
 		E9ED243B2681DF8700A5A0C1 /* ApartmentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ED243A2681DF8700A5A0C1 /* ApartmentsViewModel.swift */; };
 		E9ED243D2682211E00A5A0C1 /* ApartmentViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ED243C2682211E00A5A0C1 /* ApartmentViewState.swift */; };
 /* End PBXBuildFile section */
@@ -84,6 +88,8 @@
 		E91C75B0265D360E005F0FA0 /* SignUpForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpForm.swift; sourceTree = "<group>"; };
 		E91C75B2265D3CDC005F0FA0 /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
 		E9380229265E20230019E3F6 /* FormState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormState.swift; sourceTree = "<group>"; };
+		E970D517269B3EE40013D354 /* UserRole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRole.swift; sourceTree = "<group>"; };
+		E970D519269B49090013D354 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		E9A58ADD265C301400B3F91D /* ApartmentsAppMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApartmentsAppMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9A58AE0265C301400B3F91D /* ApartmentsAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApartmentsAppApp.swift; sourceTree = "<group>"; };
 		E9A58AE2265C301400B3F91D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -99,6 +105,8 @@
 		E9A58B0E265C331F00B3F91D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E9A58B10265C335400B3F91D /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		E9A58B12265C336100B3F91D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E9AC6BFC269C99CB000D2146 /* ViewUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtilities.swift; sourceTree = "<group>"; };
+		E9AC6BFE269CA629000D2146 /* LoginHelperViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginHelperViews.swift; sourceTree = "<group>"; };
 		E9ED243A2681DF8700A5A0C1 /* ApartmentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApartmentsViewModel.swift; sourceTree = "<group>"; };
 		E9ED243C2682211E00A5A0C1 /* ApartmentViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApartmentViewState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -166,6 +174,7 @@
 				E9A58B0E265C331F00B3F91D /* LoginView.swift */,
 				E91C75AE265D3599005F0FA0 /* LoginForm.swift */,
 				E91C75B0265D360E005F0FA0 /* SignUpForm.swift */,
+				E9AC6BFE269CA629000D2146 /* LoginHelperViews.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -207,8 +216,18 @@
 				E91C75B2265D3CDC005F0FA0 /* StringConstants.swift */,
 				E90A3257266B894B00CF4577 /* PreviewHelpers.swift */,
 				E90A3259266B8AFF00CF4577 /* DateUtilities.swift */,
+				E9AC6BFC269C99CB000D2146 /* ViewUtilities.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		E970D516269B3ECE0013D354 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				E9A58B12265C336100B3F91D /* User.swift */,
+				E970D517269B3EE40013D354 /* UserRole.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 		E9A58AD4265C301400B3F91D = {
@@ -289,6 +308,7 @@
 			children = (
 				E9A58B10265C335400B3F91D /* LoginViewModel.swift */,
 				E9ED243A2681DF8700A5A0C1 /* ApartmentsViewModel.swift */,
+				E970D519269B49090013D354 /* AppViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -296,9 +316,9 @@
 		E9A58B0D265C30A500B3F91D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E970D516269B3ECE0013D354 /* User */,
 				E90A324C266AADC200CF4577 /* Apartments */,
 				E91B6F77265EAF18001A3240 /* Login */,
-				E9A58B12265C336100B3F91D /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -558,10 +578,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9AC6BFF269CA629000D2146 /* LoginHelperViews.swift in Sources */,
+				E970D51A269B49090013D354 /* AppViewModel.swift in Sources */,
 				E91C75AD265D3555005F0FA0 /* ShapeUtilities.swift in Sources */,
 				E938022A265E20230019E3F6 /* FormState.swift in Sources */,
 				E90A3252266AB12500CF4577 /* Apartment.swift in Sources */,
 				E9ED243B2681DF8700A5A0C1 /* ApartmentsViewModel.swift in Sources */,
+				E9AC6BFD269C99CB000D2146 /* ViewUtilities.swift in Sources */,
 				E9A58B11265C335400B3F91D /* LoginViewModel.swift in Sources */,
 				E91C75B3265D3CDC005F0FA0 /* StringConstants.swift in Sources */,
 				E91B6F79265EAF2F001A3240 /* FormModel.swift in Sources */,
@@ -574,6 +597,7 @@
 				E90A324E266AADD200CF4577 /* SearchBarState.swift in Sources */,
 				E90A3250266AAFC300CF4577 /* ApartmentsSearchView.swift in Sources */,
 				E91C75AF265D3599005F0FA0 /* LoginForm.swift in Sources */,
+				E970D518269B3EE40013D354 /* UserRole.swift in Sources */,
 				E91C75B1265D360E005F0FA0 /* SignUpForm.swift in Sources */,
 				E9A58B13265C336100B3F91D /* User.swift in Sources */,
 				E9A58AE1265C301400B3F91D /* ApartmentsAppApp.swift in Sources */,

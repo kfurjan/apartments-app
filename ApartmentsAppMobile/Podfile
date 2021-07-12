@@ -5,7 +5,9 @@ target 'ApartmentsAppMobile' do
   use_frameworks!
 
   # Pods for ApartmentsApp
+  pod 'Alamofire'
   pod 'SwiftLint'
+  pod 'SwiftyJSON'
   pod 'SDWebImageSwiftUI'
 
   target 'ApartmentsAppMobileTests' do
