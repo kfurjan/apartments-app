@@ -1,3 +1,4 @@
+from datetime import timedelta
 from app.db.repositories.renters import RentersRepository
 from app.core.config import db
 from app.db.repositories.apartments import ApartmentsRepository
@@ -33,6 +34,20 @@ async def get_all(request: Request, _: ApartmentsQueryParams = Depends()):
 async def get(id: int):
     model = await repo.find_by_id(id)
     return ApartmentOut(**model)
+
+
+@router.get("/{id}/unavailable_dates", response_model=List[str])
+async def unavailable_dates(id: int):
+    dates = await repo.get_unavailable_dates(id)
+    all_dates = map(
+        lambda m: [
+            m["starts_at"] + timedelta(days=x)
+            for x in range((m["ends_at"] - m["starts_at"]).days + 1)
+        ],
+        dates,
+    )
+    strings = map(lambda m: m.strftime("%Y-%m-%d"), sum(all_dates, []))
+    return list(dict.fromkeys(strings))
 
 
 @router.post("/", response_model=ApartmentOut)
