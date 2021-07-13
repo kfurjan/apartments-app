@@ -10,6 +10,10 @@ let primaryColor = "PrimaryColor"
 let secondaryColor = "SecondaryColor"
 let surfaceColor = "SurfaceColor"
 
+// UserDefaults keys
+let accessTokenKey = "accessToken"
+let isUserLoggedInKey = "isUserLoggedIn"
+
 // Logos
 let loginLogo = "LoginLogo"
 
@@ -18,6 +22,7 @@ let login = "Login"
 let signUp = "Sign up"
 let emailAddressHint = "Email Address"
 let passwordHint = "Password"
+let repeatPasswordHint = "Repeat password"
 let forgotPassword = "Forget Password?"
 let cancel = "Cancel"
 let searchPlaceholer = "Search ..."
@@ -39,3 +44,11 @@ let starIcon = "star"
 let startIconFill = "star.fill"
 let filterIcon = "line.horizontal.3.decrease.circle"
 let sortIcon = "arrow.up.arrow.down"
+
+// api endpoints
+enum ApiConstants {
+    static let baseUrl = "http://localhost:8080/api"
+    static let apiVersion = "v1"
+    static let userApiEndpoint = "\(baseUrl)/\(apiVersion)/user"
+    static let loginApiEndpoint = "\(baseUrl)/\(apiVersion)/authentication/login"
+}

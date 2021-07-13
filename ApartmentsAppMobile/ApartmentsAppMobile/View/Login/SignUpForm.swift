@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct SignUpForm: View {
+
     @EnvironmentObject private var model: LoginViewModel
+    @EnvironmentObject private var appViewModel: AppViewModel
 
     private var foregroundColor: Color {
         model.getFormState() == .signUpForm ? .white : .gray
@@ -43,7 +45,7 @@ struct SignUpForm: View {
                         Image(systemName: filledEnvelope)
                         .foregroundColor(Color(secondaryColor))
 
-                        TextField(emailAddressHint, text: $model.formModel.email)
+                        TextField(emailAddressHint, text: $model.formModel.credentials.email)
                     }
                     Divider().background(Color.white.opacity(0.5))
                 }
@@ -55,7 +57,7 @@ struct SignUpForm: View {
                         Image(systemName: filledSlashedEye)
                         .foregroundColor(Color(secondaryColor))
 
-                        SecureField(passwordHint, text: $model.formModel.password)
+                        SecureField(passwordHint, text: $model.formModel.credentials.password)
                     }
                     Divider().background(Color.white.opacity(0.5))
                 }
@@ -67,12 +69,21 @@ struct SignUpForm: View {
                         Image(systemName: filledSlashedEye)
                         .foregroundColor(Color(secondaryColor))
 
-                        SecureField(passwordHint, text: $model.formModel.repeatPassword)
+                        SecureField(repeatPasswordHint, text: $model.formModel.credentials.repeatedPassword)
                     }
                     Divider().background(Color.white.opacity(0.5))
                 }
                 .padding(.horizontal)
                 .padding(.top, 30)
+
+                LoginToggleGroup(
+                    isGuest: $model.formModel.credentials.isGuest,
+                    isRenter: $model.formModel.credentials.isRenter
+                )
+
+                if model.didErrorHappen {
+                    ErrorDescriptionView(errorMessage: model.errorMessage)
+                }
             }
             .padding()
             .padding(.bottom, 65)
@@ -87,7 +98,7 @@ struct SignUpForm: View {
             .padding(.horizontal, 20)
 
             Button(action: {
-
+                model.registerUser(credentials: model.formModel.credentials)
             }) {
                 Text(signUp.uppercased())
                     .foregroundColor(.white)
@@ -102,7 +113,10 @@ struct SignUpForm: View {
             .opacity(buttonOpacity)
         }
         .onChange(of: model.formModel.formState, perform: { _ in
-            model.cleanUp()
+            model.cleanView()
+        })
+        .onChange(of: model.formModel.loginSuccessful, perform: { _ in
+            appViewModel.fetchData()
         })
     }
 }

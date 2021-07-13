@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct LoginForm: View {
+
     @EnvironmentObject private var model: LoginViewModel
+    @EnvironmentObject private var appViewModel: AppViewModel
 
     private var foregroundColor: Color {
         model.getFormState() == .loginForm ? .white : .gray
@@ -42,24 +44,27 @@ struct LoginForm: View {
                         Image(systemName: filledEnvelope)
                         .foregroundColor(Color(secondaryColor))
 
-                        TextField(emailAddressHint, text: $model.formModel.email)
+                        TextField(emailAddressHint, text: $model.formModel.credentials.email)
+                            .disableAutocorrection(true)
                     }
                     Divider().background(Color.white.opacity(0.5))
                 }
                 .padding(.horizontal)
-                .padding(.top, 40)
+                .padding(.top, 78)
 
                 VStack {
                     HStack(spacing: 15) {
                         Image(systemName: filledSlashedEye)
                         .foregroundColor(Color(secondaryColor))
 
-                        SecureField(passwordHint, text: $model.formModel.password)
+                        SecureField(passwordHint, text: $model.formModel.credentials.password)
+                            .disableAutocorrection(true)
                     }
                     Divider().background(Color.white.opacity(0.5))
                 }
                 .padding(.horizontal)
                 .padding(.top, 30)
+                .padding(.bottom, 78)
 
                 HStack {
                     Spacer(minLength: 0)
@@ -72,6 +77,10 @@ struct LoginForm: View {
                 }
                 .padding(.horizontal)
                 .padding(.top, 30)
+
+                if model.didErrorHappen {
+                    ErrorDescriptionView(errorMessage: model.errorMessage)
+                }
             }
             .padding()
             .padding(.bottom, 65)
@@ -86,7 +95,7 @@ struct LoginForm: View {
             .padding(.horizontal, 20)
 
             Button(action: {
-
+                model.loginUser(credentials: model.formModel.credentials)
             }) {
                 Text(login.uppercased())
                     .foregroundColor(.white)
@@ -101,7 +110,10 @@ struct LoginForm: View {
             .opacity(buttonOpacity)
         }
         .onChange(of: model.formModel.formState, perform: { _ in
-            model.cleanUp()
+            model.cleanView()
+        })
+        .onChange(of: model.formModel.loginSuccessful, perform: { _ in
+            appViewModel.fetchData()
         })
     }
 }

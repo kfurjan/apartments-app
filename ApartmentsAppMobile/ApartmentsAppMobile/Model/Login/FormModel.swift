@@ -6,8 +6,7 @@
 //
 
 struct FormModel {
-    var email: String
-    var password: String
-    var repeatPassword: String
     var formState: FormState
+    var loginSuccessful: Bool
+    var credentials: Credentials
 }
