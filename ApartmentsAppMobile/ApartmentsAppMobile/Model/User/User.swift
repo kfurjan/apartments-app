@@ -12,15 +12,15 @@ class User: Codable {
     var idUser: Int
     var email: String
     var role: UserRole
+    var password: String
     var accessToken: String
-    var passwordDigest: String
 
     private enum CodingKeys: String, CodingKey {
         case idUser = "id"
         case email = "email"
+        case password = "password_digest"
         case role = "role"
         case accessToken = "access_token"
-        case passwordDigest = "password_digest"
     }
 
     init() {
@@ -28,6 +28,6 @@ class User: Codable {
         email = ""
         role = UserRole.guest
         accessToken = ""
-        passwordDigest = ""
+        password = ""
     }
 }

@@ -45,7 +45,7 @@ struct SignUpForm: View {
                         Image(systemName: filledEnvelope)
                         .foregroundColor(Color(secondaryColor))
 
-                        TextField(emailAddressHint, text: $model.formModel.email)
+                        TextField(emailAddressHint, text: $model.formModel.credentials.email)
                     }
                     Divider().background(Color.white.opacity(0.5))
                 }
@@ -57,7 +57,7 @@ struct SignUpForm: View {
                         Image(systemName: filledSlashedEye)
                         .foregroundColor(Color(secondaryColor))
 
-                        SecureField(passwordHint, text: $model.formModel.password)
+                        SecureField(passwordHint, text: $model.formModel.credentials.password)
                     }
                     Divider().background(Color.white.opacity(0.5))
                 }
@@ -69,14 +69,17 @@ struct SignUpForm: View {
                         Image(systemName: filledSlashedEye)
                         .foregroundColor(Color(secondaryColor))
 
-                        SecureField(repeatPasswordHint, text: $model.formModel.repeatedPassword)
+                        SecureField(repeatPasswordHint, text: $model.formModel.credentials.repeatedPassword)
                     }
                     Divider().background(Color.white.opacity(0.5))
                 }
                 .padding(.horizontal)
                 .padding(.top, 30)
 
-                LoginToggleGroup(isGuest: $model.formModel.isGuest, isRenter: $model.formModel.isRenter)
+                LoginToggleGroup(
+                    isGuest: $model.formModel.credentials.isGuest,
+                    isRenter: $model.formModel.credentials.isRenter
+                )
 
                 if model.didErrorHappen {
                     ErrorDescriptionView(errorMessage: model.errorMessage)
@@ -95,7 +98,7 @@ struct SignUpForm: View {
             .padding(.horizontal, 20)
 
             Button(action: {
-                model.registerUser(formModel: model.formModel)
+                model.registerUser(credentials: model.formModel.credentials)
             }) {
                 Text(signUp.uppercased())
                     .foregroundColor(.white)

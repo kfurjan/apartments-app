@@ -24,6 +24,11 @@
 		E91C75B1265D360E005F0FA0 /* SignUpForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91C75B0265D360E005F0FA0 /* SignUpForm.swift */; };
 		E91C75B3265D3CDC005F0FA0 /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91C75B2265D3CDC005F0FA0 /* StringConstants.swift */; };
 		E938022A265E20230019E3F6 /* FormState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9380229265E20230019E3F6 /* FormState.swift */; };
+		E96E62FC269D89E300E6A5A2 /* ApiRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96E62FB269D89E300E6A5A2 /* ApiRepository.swift */; };
+		E96E62FE269D8A4600E6A5A2 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96E62FD269D8A4600E6A5A2 /* NetworkError.swift */; };
+		E96E6300269D8CB000E6A5A2 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96E62FF269D8CB000E6A5A2 /* Credentials.swift */; };
+		E96E6302269D8F5B00E6A5A2 /* ApiRepositoryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96E6301269D8F5B00E6A5A2 /* ApiRepositoryFactory.swift */; };
+		E96E6304269D8FC700E6A5A2 /* RestApiHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96E6303269D8FC700E6A5A2 /* RestApiHandler.swift */; };
 		E970D518269B3EE40013D354 /* UserRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = E970D517269B3EE40013D354 /* UserRole.swift */; };
 		E970D51A269B49090013D354 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E970D519269B49090013D354 /* AppViewModel.swift */; };
 		E9A58AE1265C301400B3F91D /* ApartmentsAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A58AE0265C301400B3F91D /* ApartmentsAppApp.swift */; };
@@ -88,6 +93,11 @@
 		E91C75B0265D360E005F0FA0 /* SignUpForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpForm.swift; sourceTree = "<group>"; };
 		E91C75B2265D3CDC005F0FA0 /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
 		E9380229265E20230019E3F6 /* FormState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormState.swift; sourceTree = "<group>"; };
+		E96E62FB269D89E300E6A5A2 /* ApiRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRepository.swift; sourceTree = "<group>"; };
+		E96E62FD269D8A4600E6A5A2 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		E96E62FF269D8CB000E6A5A2 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		E96E6301269D8F5B00E6A5A2 /* ApiRepositoryFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRepositoryFactory.swift; sourceTree = "<group>"; };
+		E96E6303269D8FC700E6A5A2 /* RestApiHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestApiHandler.swift; sourceTree = "<group>"; };
 		E970D517269B3EE40013D354 /* UserRole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRole.swift; sourceTree = "<group>"; };
 		E970D519269B49090013D354 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		E9A58ADD265C301400B3F91D /* ApartmentsAppMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApartmentsAppMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -221,6 +231,32 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		E96E62F8269D89BF00E6A5A2 /* Data Access */ = {
+			isa = PBXGroup;
+			children = (
+				E96E62FA269D89CD00E6A5A2 /* DAO */,
+				E96E62F9269D89C700E6A5A2 /* API */,
+			);
+			path = "Data Access";
+			sourceTree = "<group>";
+		};
+		E96E62F9269D89C700E6A5A2 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				E96E62FB269D89E300E6A5A2 /* ApiRepository.swift */,
+				E96E6301269D8F5B00E6A5A2 /* ApiRepositoryFactory.swift */,
+				E96E6303269D8FC700E6A5A2 /* RestApiHandler.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		E96E62FA269D89CD00E6A5A2 /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DAO;
+			sourceTree = "<group>";
+		};
 		E970D516269B3ECE0013D354 /* User */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +291,7 @@
 		E9A58ADF265C301400B3F91D /* ApartmentsAppMobile */ = {
 			isa = PBXGroup;
 			children = (
+				E96E62F8269D89BF00E6A5A2 /* Data Access */,
 				E9A58B0B265C309700B3F91D /* View */,
 				E9A58B0C265C309E00B3F91D /* View Model */,
 				E9A58B0D265C30A500B3F91D /* Model */,
@@ -319,6 +356,8 @@
 				E970D516269B3ECE0013D354 /* User */,
 				E90A324C266AADC200CF4577 /* Apartments */,
 				E91B6F77265EAF18001A3240 /* Login */,
+				E96E62FD269D8A4600E6A5A2 /* NetworkError.swift */,
+				E96E62FF269D8CB000E6A5A2 /* Credentials.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -581,12 +620,15 @@
 				E9AC6BFF269CA629000D2146 /* LoginHelperViews.swift in Sources */,
 				E970D51A269B49090013D354 /* AppViewModel.swift in Sources */,
 				E91C75AD265D3555005F0FA0 /* ShapeUtilities.swift in Sources */,
+				E96E6304269D8FC700E6A5A2 /* RestApiHandler.swift in Sources */,
 				E938022A265E20230019E3F6 /* FormState.swift in Sources */,
 				E90A3252266AB12500CF4577 /* Apartment.swift in Sources */,
 				E9ED243B2681DF8700A5A0C1 /* ApartmentsViewModel.swift in Sources */,
+				E96E62FE269D8A4600E6A5A2 /* NetworkError.swift in Sources */,
 				E9AC6BFD269C99CB000D2146 /* ViewUtilities.swift in Sources */,
 				E9A58B11265C335400B3F91D /* LoginViewModel.swift in Sources */,
 				E91C75B3265D3CDC005F0FA0 /* StringConstants.swift in Sources */,
+				E96E6300269D8CB000E6A5A2 /* Credentials.swift in Sources */,
 				E91B6F79265EAF2F001A3240 /* FormModel.swift in Sources */,
 				E90A3258266B894B00CF4577 /* PreviewHelpers.swift in Sources */,
 				E90A324B266AAD8C00CF4577 /* SearchBar.swift in Sources */,
@@ -598,11 +640,13 @@
 				E90A3250266AAFC300CF4577 /* ApartmentsSearchView.swift in Sources */,
 				E91C75AF265D3599005F0FA0 /* LoginForm.swift in Sources */,
 				E970D518269B3EE40013D354 /* UserRole.swift in Sources */,
+				E96E62FC269D89E300E6A5A2 /* ApiRepository.swift in Sources */,
 				E91C75B1265D360E005F0FA0 /* SignUpForm.swift in Sources */,
 				E9A58B13265C336100B3F91D /* User.swift in Sources */,
 				E9A58AE1265C301400B3F91D /* ApartmentsAppApp.swift in Sources */,
 				E90A3254266AB31900CF4577 /* ApartmentPreview.swift in Sources */,
 				E90A325A266B8AFF00CF4577 /* DateUtilities.swift in Sources */,
+				E96E6302269D8F5B00E6A5A2 /* ApiRepositoryFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

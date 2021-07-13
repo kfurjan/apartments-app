@@ -44,7 +44,7 @@ struct LoginForm: View {
                         Image(systemName: filledEnvelope)
                         .foregroundColor(Color(secondaryColor))
 
-                        TextField(emailAddressHint, text: $model.formModel.email)
+                        TextField(emailAddressHint, text: $model.formModel.credentials.email)
                             .disableAutocorrection(true)
                     }
                     Divider().background(Color.white.opacity(0.5))
@@ -57,7 +57,7 @@ struct LoginForm: View {
                         Image(systemName: filledSlashedEye)
                         .foregroundColor(Color(secondaryColor))
 
-                        SecureField(passwordHint, text: $model.formModel.password)
+                        SecureField(passwordHint, text: $model.formModel.credentials.password)
                             .disableAutocorrection(true)
                     }
                     Divider().background(Color.white.opacity(0.5))
@@ -95,7 +95,7 @@ struct LoginForm: View {
             .padding(.horizontal, 20)
 
             Button(action: {
-                model.loginUser(formModel: model.formModel)
+                model.loginUser(credentials: model.formModel.credentials)
             }) {
                 Text(login.uppercased())
                     .foregroundColor(.white)
