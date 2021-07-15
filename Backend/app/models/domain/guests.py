@@ -23,7 +23,7 @@ class GuestInCreate(BaseModel):
     first_name: str
     last_name: str
     oib: str
-    date_of_birth: date
+    date_of_birth: str
 
 
 class GuestInUpdate(BaseModel):
@@ -32,7 +32,7 @@ class GuestInUpdate(BaseModel):
     first_name: Optional[str]
     last_name: Optional[str]
     oib: Optional[str]
-    date_of_birth: Optional[date]
+    date_of_birth: Optional[str]
 
 
 guests = sqlalchemy.Table(

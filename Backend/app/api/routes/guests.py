@@ -1,7 +1,5 @@
 # from app.core.config import db
 from app.db.repositories.users import UsersRepository
-from fastapi.exceptions import HTTPException
-from starlette.status import HTTP_403_FORBIDDEN
 from app.core.config import db
 from app.db.repositories.guests import GuestsRepository
 from app.db.repositories.reservations import ReservationsRepository
@@ -23,7 +21,7 @@ async def get(id: int, Authorize: AuthJWT = Depends()):
     user = await authorize_guest(email)
 
     model = await repo.find_by_id(id)
-    if model and model['user_id'] == user.id:
+    if model and model["user_id"] == user.id:
         return GuestOut(**model)
 
 
@@ -36,11 +34,12 @@ async def create(guest: GuestInCreate, Authorize: AuthJWT = Depends()):
     guest.user_id = user.id
 
     model = await repo.create(guest)
-    return GuestOut(**model)
+    if model:
+        return GuestOut(**model)
 
 
 @router.put("/{id}", response_model=GuestOut)
-async def update(id, guest: GuestInUpdate, Authorize: AuthJWT = Depends()):
+async def update(id: int, guest: GuestInUpdate, Authorize: AuthJWT = Depends()):
     Authorize.jwt_required()
     email = Authorize.get_jwt_subject()
     user = await authorize_guest(email)
@@ -58,7 +57,7 @@ async def delete(id: int, Authorize: AuthJWT = Depends()):
     user = await authorize_guest(email)
 
     model = await repo.find_by_id(id)
-    if model and model['user_id'] == user.id:
+    if model and model["user_id"] == user.id:
         return await repo.delete(id)
 
 

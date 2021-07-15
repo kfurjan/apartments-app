@@ -41,7 +41,7 @@ class BaseRepository:
         )
 
         await self.database.execute(query)
-        return await self.find_by_id(model.id)
+        return await self.find_by_id(id)
 
     async def delete(self, id):
         query = self.table().delete().where(self.table().c.id == id)

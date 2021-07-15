@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import date, datetime
 from typing import Optional
 from pydantic import BaseModel
 from app.core.config import metadata, sqlalchemy
@@ -13,7 +13,7 @@ class RenterOut(BaseModel):
     first_name: str
     last_name: str
     oib: str
-    date_of_birth: Optional[datetime]
+    date_of_birth: date
     created_at: datetime
     updated_at: datetime
 
@@ -25,7 +25,7 @@ class RenterInCreate(BaseModel):
     first_name: str
     last_name: str
     oib: str
-    date_of_birth: Optional[datetime]
+    date_of_birth: str
 
 
 class RenterInUpdate(BaseModel):
@@ -35,7 +35,7 @@ class RenterInUpdate(BaseModel):
     first_name: Optional[str]
     last_name: Optional[str]
     oib: Optional[str]
-    date_of_birth: Optional[datetime]
+    date_of_birth: Optional[str]
 
 
 renters = sqlalchemy.Table(
