@@ -71,6 +71,9 @@ struct ApartmentsSearchView: View {
             }
             .background(Color(primaryColor).edgesIgnoringSafeArea(.all))
         }
+        .onAppear {
+            viewModel.fetchApartments()
+        }
     }
 }
 

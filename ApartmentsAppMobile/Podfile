@@ -9,6 +9,7 @@ target 'ApartmentsAppMobile' do
   pod 'SwiftLint'
   pod 'SwiftyJSON'
   pod 'SDWebImageSwiftUI'
+  pod 'RealmSwift', '~>10'
 
   target 'ApartmentsAppMobileTests' do
     inherit! :search_paths

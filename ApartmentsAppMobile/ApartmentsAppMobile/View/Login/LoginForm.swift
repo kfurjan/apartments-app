@@ -113,7 +113,7 @@ struct LoginForm: View {
             model.cleanView()
         })
         .onChange(of: model.formModel.loginSuccessful, perform: { _ in
-            appViewModel.fetchData()
+            appViewModel.fetchUserData()
         })
     }
 }

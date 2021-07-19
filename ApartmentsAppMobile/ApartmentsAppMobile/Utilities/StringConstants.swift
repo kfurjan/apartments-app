@@ -30,6 +30,7 @@ let apartments = "Apartments"
 let available = "Available"
 let unavailable = "Unavailable"
 let filters = "Filters"
+let user = "User"
 
 // System icons
 let filledEnvelope = "envelope.fill"
@@ -44,6 +45,8 @@ let starIcon = "star"
 let startIconFill = "star.fill"
 let filterIcon = "line.horizontal.3.decrease.circle"
 let sortIcon = "arrow.up.arrow.down"
+let houseIcon = "house"
+let personIcon = "person"
 
 // api endpoints
 enum ApiConstants {
@@ -51,4 +54,5 @@ enum ApiConstants {
     static let apiVersion = "v1"
     static let userApiEndpoint = "\(baseUrl)/\(apiVersion)/user"
     static let loginApiEndpoint = "\(baseUrl)/\(apiVersion)/authentication/login"
+    static let apartmentsApiEndpoint = "\(baseUrl)/\(apiVersion)/apartments"
 }

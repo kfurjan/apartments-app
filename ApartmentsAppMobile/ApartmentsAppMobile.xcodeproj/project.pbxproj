@@ -42,8 +42,12 @@
 		E9A58B13265C336100B3F91D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A58B12265C336100B3F91D /* User.swift */; };
 		E9AC6BFD269C99CB000D2146 /* ViewUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AC6BFC269C99CB000D2146 /* ViewUtilities.swift */; };
 		E9AC6BFF269CA629000D2146 /* LoginHelperViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AC6BFE269CA629000D2146 /* LoginHelperViews.swift */; };
+		E9B4F3C226A04EAB00DF011D /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4F3C126A04EAB00DF011D /* UserView.swift */; };
 		E9ED243B2681DF8700A5A0C1 /* ApartmentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ED243A2681DF8700A5A0C1 /* ApartmentsViewModel.swift */; };
 		E9ED243D2682211E00A5A0C1 /* ApartmentViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ED243C2682211E00A5A0C1 /* ApartmentViewState.swift */; };
+		E9FFFD0026A428B6003FEE9A /* DaoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FFFCFF26A428B6003FEE9A /* DaoRepository.swift */; };
+		E9FFFD0226A428FE003FEE9A /* DaoHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FFFD0126A428FE003FEE9A /* DaoHandler.swift */; };
+		E9FFFD0426A42B15003FEE9A /* DaoRepositoryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FFFD0326A42B15003FEE9A /* DaoRepositoryFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,8 +121,12 @@
 		E9A58B12265C336100B3F91D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E9AC6BFC269C99CB000D2146 /* ViewUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtilities.swift; sourceTree = "<group>"; };
 		E9AC6BFE269CA629000D2146 /* LoginHelperViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginHelperViews.swift; sourceTree = "<group>"; };
+		E9B4F3C126A04EAB00DF011D /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		E9ED243A2681DF8700A5A0C1 /* ApartmentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApartmentsViewModel.swift; sourceTree = "<group>"; };
 		E9ED243C2682211E00A5A0C1 /* ApartmentViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApartmentViewState.swift; sourceTree = "<group>"; };
+		E9FFFCFF26A428B6003FEE9A /* DaoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaoRepository.swift; sourceTree = "<group>"; };
+		E9FFFD0126A428FE003FEE9A /* DaoHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaoHandler.swift; sourceTree = "<group>"; };
+		E9FFFD0326A42B15003FEE9A /* DaoRepositoryFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaoRepositoryFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +261,9 @@
 		E96E62FA269D89CD00E6A5A2 /* DAO */ = {
 			isa = PBXGroup;
 			children = (
+				E9FFFCFF26A428B6003FEE9A /* DaoRepository.swift */,
+				E9FFFD0126A428FE003FEE9A /* DaoHandler.swift */,
+				E9FFFD0326A42B15003FEE9A /* DaoRepositoryFactory.swift */,
 			);
 			path = DAO;
 			sourceTree = "<group>";
@@ -334,6 +345,7 @@
 		E9A58B0B265C309700B3F91D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E9B4F3C026A04E9F00DF011D /* User */,
 				E90A3249266AAD8000CF4577 /* Apartments */,
 				E90A3248266AAD7000CF4577 /* Login */,
 			);
@@ -360,6 +372,14 @@
 				E96E62FF269D8CB000E6A5A2 /* Credentials.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E9B4F3C026A04E9F00DF011D /* User */ = {
+			isa = PBXGroup;
+			children = (
+				E9B4F3C126A04EAB00DF011D /* UserView.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -618,7 +638,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9AC6BFF269CA629000D2146 /* LoginHelperViews.swift in Sources */,
+				E9FFFD0426A42B15003FEE9A /* DaoRepositoryFactory.swift in Sources */,
 				E970D51A269B49090013D354 /* AppViewModel.swift in Sources */,
+				E9FFFD0026A428B6003FEE9A /* DaoRepository.swift in Sources */,
 				E91C75AD265D3555005F0FA0 /* ShapeUtilities.swift in Sources */,
 				E96E6304269D8FC700E6A5A2 /* RestApiHandler.swift in Sources */,
 				E938022A265E20230019E3F6 /* FormState.swift in Sources */,
@@ -645,8 +667,10 @@
 				E9A58B13265C336100B3F91D /* User.swift in Sources */,
 				E9A58AE1265C301400B3F91D /* ApartmentsAppApp.swift in Sources */,
 				E90A3254266AB31900CF4577 /* ApartmentPreview.swift in Sources */,
+				E9B4F3C226A04EAB00DF011D /* UserView.swift in Sources */,
 				E90A325A266B8AFF00CF4577 /* DateUtilities.swift in Sources */,
 				E96E6302269D8F5B00E6A5A2 /* ApiRepositoryFactory.swift in Sources */,
+				E9FFFD0226A428FE003FEE9A /* DaoHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
