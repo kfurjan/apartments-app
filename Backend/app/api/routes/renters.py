@@ -16,7 +16,7 @@ async def get(id: int, Authorize: AuthJWT = Depends()):
     user = await authorize_renter(email)
 
     model = await repo.find_by_id(id)
-    if model and model["user_id"] == user.id:
+    if model and model.user_id == user.id:
         return RenterOut(**model)
 
 
@@ -26,7 +26,7 @@ async def create(renter: RenterInCreate, Authorize: AuthJWT = Depends()):
     email = Authorize.get_jwt_subject()
     user = await authorize_renter(email)
 
-    renter["user_id"] = user.id
+    renter.user_id = user.id
 
     model = await repo.create(renter)
     return RenterOut(**model)
@@ -51,5 +51,5 @@ async def delete(id: int, Authorize: AuthJWT = Depends()):
     user = await authorize_renter(email)
 
     model = await repo.find_by_id(id)
-    if model and model["user_id"] == user.id:
+    if model and model.user_id == user.id:
         return await repo.delete(id)

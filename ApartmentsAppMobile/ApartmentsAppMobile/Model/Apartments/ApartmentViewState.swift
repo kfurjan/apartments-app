@@ -8,9 +8,9 @@
 import Foundation
 
 struct ApartmentViewState {
-    var sortDescending: Bool
-    var isSheetPresented: Bool
-    var selectedFilter: String
-    var filterOptions: [String]
-    var apartments: [Apartment]
+    var sortDescending = false
+    var isSheetPresented = false
+    var selectedFilter = FilterOptions.price.rawValue
+    var filterOptions: [String] = FilterOptions.allCases.map { $0.rawValue }
+    var apartments: [Apartment] = []
 }

@@ -13,7 +13,7 @@ class RenterOut(BaseModel):
     first_name: str
     last_name: str
     oib: str
-    date_of_birth: datetime
+    date_of_birth: Optional[datetime]
     created_at: datetime
     updated_at: datetime
 
@@ -25,7 +25,7 @@ class RenterInCreate(BaseModel):
     first_name: str
     last_name: str
     oib: str
-    date_of_birth: datetime
+    date_of_birth: Optional[datetime]
 
 
 class RenterInUpdate(BaseModel):

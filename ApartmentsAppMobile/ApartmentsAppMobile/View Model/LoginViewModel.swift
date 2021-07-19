@@ -12,7 +12,7 @@ import SwiftyJSON
 
 final class LoginViewModel: ObservableObject {
 
-    private var _apiRepository = ApiRepositoryFactory.getRepository()
+    private let _apiRepository = ApiRepositoryFactory.getRepository()
 
     @Published var formModel: FormModel
     @Published var didErrorHappen = false

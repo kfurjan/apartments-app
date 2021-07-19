@@ -13,7 +13,7 @@ struct ApartmentPreview: View {
 
     var body: some View {
         HStack(alignment: .center, spacing: 4) {
-            WebImage(url: URL(string: apartment.images.first!))
+            WebImage(url: URL(string: apartment.images.first ?? ""))
                 .resizable()
                 .placeholder {
                     Rectangle().fill(Color.gray)
@@ -27,7 +27,7 @@ struct ApartmentPreview: View {
                 .cornerRadius(12)
 
             VStack(alignment: .leading) {
-                Text(apartment.tile)
+                Text(apartment.title)
                     .font(.title3)
                     .fontWeight(.bold)
                     .padding(.vertical, 5)
@@ -44,7 +44,7 @@ struct ApartmentPreview: View {
                 HStack(spacing: 10) {
                     Image(systemName: euroSignCircleFill)
                         .foregroundColor(Color(secondaryColor))
-                    Text(apartment.pricePerNight.description)
+                    Text("\(String(format: "%.2f", apartment.pricePerNight))")
                         .font(.headline)
 
                     Spacer()

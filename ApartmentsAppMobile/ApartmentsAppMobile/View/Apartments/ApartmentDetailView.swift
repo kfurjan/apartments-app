@@ -44,7 +44,7 @@ struct ApartmentDetailView: View {
                 }
             }
             HStack(spacing: 8) { // title
-                Text(apartment.tile)
+                Text(apartment.title)
                     .font(.title)
                     .fontWeight(.bold)
                     .padding(.horizontal, 5)
@@ -91,7 +91,7 @@ struct ApartmentDetailView: View {
 
             HStack(spacing: 8) { // description
                 ScrollView {
-                    Text(apartment.description)
+                    Text(apartment.apartmentDesc)
                         .font(.subheadline)
                         .multilineTextAlignment(.center)
                 }

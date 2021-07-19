@@ -16,25 +16,30 @@ enum FilterOptions: String, CaseIterable {
 
 final class ApartmentsViewModel: ObservableObject {
 
-    @Published var searchBarState = SearchBarState()
-    @Published var apartmentsViewState: ApartmentViewState
+    private let _daoRepository = DaoRepositoryFactory.getRepository()
+    private let _apiRepository = ApiRepositoryFactory.getRepository()
 
-    init() {
-        apartmentsViewState = ApartmentViewState(
-            sortDescending: false,
-            isSheetPresented: false,
-            selectedFilter: FilterOptions.price.rawValue,
-            filterOptions: FilterOptions.allCases.map { $0.rawValue },
-            apartments: apartmentsList
-        )
+    @Published var searchBarState = SearchBarState()
+    @Published var apartmentsViewState = ApartmentViewState()
+
+    func fetchApartments() {
+        _apiRepository.getAllApartments { result in
+            switch result {
+            case .success(let apartments):
+                self._daoRepository.createApartments(apartments: apartments)
+                self.apartmentsViewState.apartments = self._daoRepository.retrieveApartments()
+            case .failure(_):
+                self.apartmentsViewState.apartments = self._daoRepository.retrieveApartments()
+            }
+        }
     }
 
     func filterApartments() {
         if searchBarState.text == "" {
-            apartmentsViewState.apartments = apartmentsList
+            apartmentsViewState.apartments = _daoRepository.retrieveApartments()
         } else {
             apartmentsViewState.apartments = apartmentsViewState.apartments.filter {
-                $0.tile.lowercased().contains(searchBarState.text.lowercased())
+                $0.title.lowercased().contains(searchBarState.text.lowercased())
                 || $0.city.lowercased().contains(searchBarState.text.lowercased())
             }
         }

@@ -5,29 +5,26 @@
 //  Created by Kevin Furjan on 24.05.2021.
 //
 
-import Combine
 import Foundation
 
 class User: Codable {
-    var idUser: Int
+    var id: Int
     var email: String
     var role: UserRole
-    var password: String
-    var accessToken: String
+    var renterId: Int?
+    var guestId: Int?
 
     private enum CodingKeys: String, CodingKey {
-        case idUser = "id"
+        case id = "id"
         case email = "email"
-        case password = "password_digest"
         case role = "role"
-        case accessToken = "access_token"
+        case renterId = "renter_id"
+        case guestId = "guest_id"
     }
 
     init() {
-        idUser = 0
+        id = 0
         email = ""
         role = UserRole.guest
-        accessToken = ""
-        password = ""
     }
 }
