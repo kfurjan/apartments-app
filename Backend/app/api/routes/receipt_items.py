@@ -41,7 +41,9 @@ async def create(receipt_item: ReceiptItemInCreate, Authorize: AuthJWT = Depends
 
 
 @router.put("/{id}", response_model=ReceiptItemOut)
-async def update(id, receipt_item: ReceiptItemInUpdate, Authorize: AuthJWT = Depends()):
+async def update(
+    id: int, receipt_item: ReceiptItemInUpdate, Authorize: AuthJWT = Depends()
+):
     Authorize.jwt_required()
     email = Authorize.get_jwt_subject()
     await authorize_renter(email)

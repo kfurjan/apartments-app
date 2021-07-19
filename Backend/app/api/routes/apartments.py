@@ -63,7 +63,7 @@ async def create(apartment: ApartmentInCreate, Authorize: AuthJWT = Depends()):
 
 
 @router.put("/{id}", response_model=ApartmentOut)
-async def update(id, apartment: ApartmentInUpdate, Authorize: AuthJWT = Depends()):
+async def update(id: int, apartment: ApartmentInUpdate, Authorize: AuthJWT = Depends()):
     Authorize.jwt_required()
     email = Authorize.get_jwt_subject()
     user = await authorize_renter(email)

@@ -41,7 +41,7 @@ async def create(
 
 @router.put("/{id}", response_model=ApartmentDetailOut)
 async def update(
-    id, apartment_detail: ApartmentDetailInUpdate, Authorize: AuthJWT = Depends()
+    id: int, apartment_detail: ApartmentDetailInUpdate, Authorize: AuthJWT = Depends()
 ):
     Authorize.jwt_required()
     email = Authorize.get_jwt_subject()
