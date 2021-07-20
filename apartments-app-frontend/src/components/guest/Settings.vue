@@ -64,6 +64,9 @@
                   show-adjacent-months
                 ></v-date-picker>
               </v-menu>
+              <router-link to="/privacy_policy" class="link"
+                >Privacy policy</router-link
+              >
             </v-card-text>
             <v-card-actions>
               <v-spacer></v-spacer>

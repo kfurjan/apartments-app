@@ -12,12 +12,6 @@
       </v-list-item-icon>
       <v-list-item-title>Reservations</v-list-item-title>
     </v-list-item>
-    <v-list-item link>
-      <v-list-item-icon>
-        <v-icon>mdi-receipt</v-icon>
-      </v-list-item-icon>
-      <v-list-item-title>Receipts</v-list-item-title>
-    </v-list-item>
   </v-list>
 </template>
 

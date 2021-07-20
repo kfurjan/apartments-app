@@ -11,6 +11,7 @@ import ApartmentDetails from "../views/ApartmentDetails.vue";
 import Apartments from "../views/renter/Apartments.vue";
 import Reservations from "../views/Reservations.vue";
 import ApartmentForm from "../views/renter/ApartmentForm.vue";
+import PrivacyPolicy from "../views/PrivacyPolicy.vue";
 
 Vue.use(VueRouter);
 
@@ -81,6 +82,14 @@ const routes = [
     path: "/reservations",
     name: "Reservations",
     component: Reservations,
+    meta: {
+      requiresAuth: true
+    },
+  },
+  {
+    path: "/privacy_policy",
+    name: "PrivacyPolicy",
+    component: PrivacyPolicy,
     meta: {
       requiresAuth: true
     },

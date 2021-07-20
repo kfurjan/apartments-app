@@ -80,10 +80,13 @@
                 :rules="cityRules"
                 required
               ></v-text-field>
+              <router-link to="/privacy_policy" class="link"
+                >Privacy policy</router-link
+              >
             </v-card-text>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn color="primary" type="submit">Update info</v-btn>
+              <v-btn color="primary" type="submit">{{ mode }}</v-btn>
             </v-card-actions>
           </v-form>
         </v-card>
