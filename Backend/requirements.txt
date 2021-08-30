@@ -1,6 +1,6 @@
 # linter and formatter
 flake8==3.9.2
-black==21.7b0
+black==21.8b0
 
 # FastAPI dependencies
 fastapi==0.68.0
