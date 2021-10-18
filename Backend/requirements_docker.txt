@@ -14,7 +14,7 @@ psycopg2==2.9.1
 databases[postgresql]==0.4.3
 
 # database migration tool
-alembic==1.6.5
+alembic==1.7.4
 
 # email validation
 email-validator==1.1.3
