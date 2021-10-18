@@ -4,7 +4,7 @@ black==21.9b0
 
 # FastAPI dependencies
 fastapi==0.68.0
-uvicorn[standard]==0.14.0
+uvicorn[standard]==0.15.0
 fastapi-jwt-auth==0.5.0
 passlib[bcrypt]==1.7.4
 
