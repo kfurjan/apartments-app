@@ -1,6 +1,6 @@
 # FastAPI dependencies
 fastapi==0.70.0
-uvicorn[standard]==0.15.0
+uvicorn[standard]==0.16.0
 fastapi-jwt-auth==0.5.0
 passlib[bcrypt]==1.7.4
 
