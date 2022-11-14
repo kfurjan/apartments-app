@@ -12,7 +12,7 @@ passlib[bcrypt]==1.7.4
 pydantic==1.8.2
 
 # database communication
-databases[postgresql]==0.5.3
+databases[postgresql]==0.6.2
 
 # database migration tool
 alembic==1.7.5
